@@ -200,3 +200,13 @@ if (turnNumber === 9) {
 
 console.log('turnNumber is:', turnNumber)
 console.log('over is:', over)
+
+// restart 'over' state when game is over
+// reset turnNumber back to 1 once the game is finished
+if (over === true) {
+  turnNumber = 1
+  over = false
+}
+
+console.log('is the game still over?', over)
+console.log('turn number is now:', turnNumber)
