@@ -25,24 +25,48 @@
             <p>Draft</p>
           </div>
 
-          <div class="column left login-box">
+          <div class="column left auth-box">
 
-            <form id="sign-up">
-                <input type="text" name="credentials[email]" placeholder="Enter Email">
-                <input type="password" name="credentials[password]" placeholder="Enter Password">
-                <input type="password" name="credentials[password_confirmation]" placeholder="Enter Password Again">
-                <input type="submit" name="submit" value="Create Account">
-            </form>
+            <div class="column left auth-box login-box">
 
-            <p id="sign-up-message"></p>
+              <form id="sign-up">
+                  <input type="text" name="credentials[email]" placeholder="Enter Email">
+                  <input type="password" name="credentials[password]" placeholder="Enter Password">
+                  <input type="password" name="credentials[password_confirmation]" placeholder="Enter Password Again">
+                  <input type="submit" name="submit" value="Create Account">
+              </form>
 
-            <form id="sign-in">
-              <input name="credentials[email]" type="text" placeholder="Sign-In Email">
-              <input name="credentials[password]" type="password" value="Enter Password">
-              <input type="submit" name="submit" value="Log In">
-            </form>
+              <p id="sign-up-message"></p>
 
-            <p id="sign-in-message"></p>
+              <form id="sign-in">
+                <input name="credentials[email]" type="text" placeholder="Sign-In Email">
+                <input name="credentials[password]" type="password" value="Enter Password">
+                <input type="submit" name="submit" value="Log In">
+              </form>
+
+              <p id="sign-in-message"></p>
+
+            </div>
+
+            <div class="column left auth-box signed-in-box">
+
+              <form id="change-password">
+                  <input type="password" name="passwords[old]" placeholder="Enter Old Password">
+                  <input type="password" name="passwords[new]" placeholder="Enter New Password">
+                  <input type="submit" name="submit" value="Change Password">
+              </form>
+
+              <p id="change-password-message"></p>
+
+              <form id="sign-out">
+                <input name="credentials[email]" type="text" placeholder="Sign-In Email">
+                <input name="credentials[password]" type="password" value="Enter Password">
+                <input type="submit" name="submit" value="Log In">
+              </form>
+
+              <p id="log-out-message"></p>
+
+            </div>
 
           </div>
 

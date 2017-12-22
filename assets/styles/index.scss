@@ -7,6 +7,7 @@ $maroon-red: #c83333;
 $red: #f00;
 $github-red: #d53c4c;
 $green: #080;
+$turquise: #1bb580;
 $light-gray: #aaa;
 $med-light-gray: #bbb;
 $dark-gray: #eee;
@@ -46,12 +47,25 @@ $black: #000;
   width: 100%;
 }
 
-.login-box {
+.auth-box {
   background: $green;
   border: 1px solid $black;
-  height: 240px;
-  margin: 50px auto;
+  // height: 400px;
+  height: auto;
+  margin: auto;
   text-align: center;
+  width: 100%;
+}
+
+.login-box {
+  background: none;
+  border: 0;
+}
+
+.signed-in-box {
+  // display: none;
+  background: $green;
+  height: auto;
   width: 100%;
 }
 
@@ -119,16 +133,16 @@ $black: #000;
   }
 
   .left {
-    height: 270px;
+    height: auto;
     margin: auto;
   }
 
   .title-box {
     border-bottom: 0;
-    height: 100px;
+    // height: 100px;
   }
 
-  .login-box {
-    height: 140px;
+  .auth-box {
+    // height: 140px;
   }
 }
