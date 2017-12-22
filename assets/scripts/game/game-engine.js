@@ -86,117 +86,73 @@ let turnNumber = 1
 let turnPlayer = ''
 let over = false
 
-// Turn logic
-if (turnNumber === 1) {
-  // it is player_x turn
-  turnPlayer = 'Player X'
-  // addMarker based on player's input
-  console.log(`It is currently turn number: ${turnNumber}. It is ${turnPlayer}'s turn.'`)
-  playerXTurn(0)
-}
-if (turnNumber === 2) {
-  // it is player_0 turn
-  turnPlayer = 'Player 0'
-  // addMarker based on player's input
-  console.log(`It is currently turn number: ${turnNumber}. It is ${turnPlayer}'s turn.'`)
-  player0Turn(6)
-  // BELOW IS OBSOLETE -- Added turn number incrementer to addMarker function
-  // if the player makes a valid move, increment the turn number
-  // otherwise, log that the player needs to pick a move!
-  // if (player0Turn() === true) {
-  //   turnNumber++
-  // } else {
-  //   console.log('Player 0 needs to pick a move!')
-  // }
-}
-if (turnNumber === 3) {
-  // it is player_x turn
-  turnPlayer = 'Player X'
-  // addMarker based on player's input
-  console.log(`It is currently turn number: ${turnNumber}. It is ${turnPlayer}'s turn.'`)
-  playerXTurn(1)
-  // BELOW IS OBSOLETE -- Added turn number incrementer to addMarker function
-  // if (playerXTurn() === true) {
-  //   turnNumber++
-  // } else {
-  //   console.log('Player X needs to pick a move!')
-  // }
-}
-if (turnNumber === 4) {
-  // it is player_0 turn
-  turnPlayer = 'Player 0'
-  // addMarker based on player's input
-  console.log(`It is currently turn number: ${turnNumber}. It is ${turnPlayer}'s turn.'`)
-  player0Turn(7)
-  // BELOW IS OBSOLETE -- Added turn number incrementer to addMarker function
-  // if (player0Turn() === true) {
-  //   turnNumber++
-  // } else {
-  //   console.log('Player 0 needs to pick a move!')
-  // }
-}
-if (turnNumber === 5) {
-  // it is player_x turn
-  turnPlayer = 'Player X'
-  // addMarker based on player's input
-  console.log(`It is currently turn number: ${turnNumber}. It is ${turnPlayer}'s turn.'`)
-  playerXTurn(5)
-  checkForWin()
-  // BELOW IS OBSOLETE -- Added turn number incrementer to addMarker function
-  // if (over === false && playerXTurn === true) {
-  //   turnNumber++
-  // } else {
-  //   console.log('Player X needs to pick a move!')
-  // }
-}
-if (turnNumber === 6) {
-  // it is player_0 turn
-  turnPlayer = 'Player 0'
-  // addMarker based on player's input
-  console.log(`It is currently turn number: ${turnNumber}. It is ${turnPlayer}'s turn.'`)
-  player0Turn(4)
-  checkForWin()
-  // BELOW IS OBSOLETE -- Added turn number incrementer to addMarker function
-  // if (over === false && player0Turn === true) {
-  //   turnNumber++
-  // } else {
-  //   console.log('Player 0 needs to pick a move!')
-  // }
-}
-if (turnNumber === 7) {
-  // it is player_x turn
-  turnPlayer = 'Player X'
-  // addMarker based on player's input
-  console.log(`It is currently turn number: ${turnNumber}. It is ${turnPlayer}'s turn.'`)
-  playerXTurn(2)
-  checkForWin()
-  // BELOW IS OBSOLETE -- Added turn number incrementer to addMarker function
-  // if (over === false && playerXTurn === true) {
-  //   turnNumber++
-  // } else {
-  //   console.log('Player X needs to pick a move!')
-  // }
-}
-if (turnNumber === 8) {
-  // it is player_0 turn
-  turnPlayer = 'Player 0'
-  // addMarker based on player's input
-  console.log(`It is currently turn number: ${turnNumber}. It is ${turnPlayer}'s turn.'`)
-  checkForWin()
-  // BELOW IS OBSOLETE -- Added turn number incrementer to addMarker function
-  // if (over === false && player0Turn === true) {
-  //   turnNumber++
-  // } else {
-  //   console.log('Player 0 needs to pick a move!')
-  // }
-}
-if (turnNumber === 9) {
-  // it is player_x turn
-  turnPlayer = 'Player X'
-  // addMarker based on player's input
-  console.log(`It is currently turn number: ${turnNumber}. It is ${turnPlayer}'s turn.'`)
-  checkForWin()
-}
+// // Turn logic
+// if (turnNumber === 1) {
+//   // it is player_x turn
+//   turnPlayer = 'Player X'
+//   // addMarker based on player's input
+//   console.log(`It is currently turn number: ${turnNumber}. It is ${turnPlayer}'s turn.'`)
+//   playerXTurn(0)
+// }
+// if (turnNumber === 2) {
+//   // it is player_0 turn
+//   turnPlayer = 'Player 0'
+//   // addMarker based on player's input
+//   console.log(`It is currently turn number: ${turnNumber}. It is ${turnPlayer}'s turn.'`)
+//   player0Turn(6)
+// }
+// if (turnNumber === 3) {
+//   // it is player_x turn
+//   turnPlayer = 'Player X'
+//   // addMarker based on player's input
+//   console.log(`It is currently turn number: ${turnNumber}. It is ${turnPlayer}'s turn.'`)
+//   playerXTurn(1)
+// }
+// if (turnNumber === 4) {
+//   // it is player_0 turn
+//   turnPlayer = 'Player 0'
+//   // addMarker based on player's input
+//   console.log(`It is currently turn number: ${turnNumber}. It is ${turnPlayer}'s turn.'`)
+//   player0Turn(7)
+// }
+// if (turnNumber === 5) {
+//   // it is player_x turn
+//   turnPlayer = 'Player X'
+//   // addMarker based on player's input
+//   console.log(`It is currently turn number: ${turnNumber}. It is ${turnPlayer}'s turn.'`)
+//   playerXTurn(5)
+//   checkForWin()
+// }
+// if (turnNumber === 6) {
+//   // it is player_0 turn
+//   turnPlayer = 'Player 0'
+//   // addMarker based on player's input
+//   console.log(`It is currently turn number: ${turnNumber}. It is ${turnPlayer}'s turn.'`)
+//   player0Turn(4)
+//   checkForWin()
+// }
+// if (turnNumber === 7) {
+//   // it is player_x turn
+//   turnPlayer = 'Player X'
+//   // addMarker based on player's input
+//   console.log(`It is currently turn number: ${turnNumber}. It is ${turnPlayer}'s turn.'`)
+//   playerXTurn(2)
+//   checkForWin()
+// }
+// if (turnNumber === 8) {
+//   // it is player_0 turn
+//   turnPlayer = 'Player 0'
+//   // addMarker based on player's input
+//   console.log(`It is currently turn number: ${turnNumber}. It is ${turnPlayer}'s turn.'`)
+//   checkForWin()
+// }
+// if (turnNumber === 9) {
+//   // it is player_x turn
+//   turnPlayer = 'Player X'
+//   // addMarker based on player's input
+//   console.log(`It is currently turn number: ${turnNumber}. It is ${turnPlayer}'s turn.'`)
+//   checkForWin()
+// }
 
 console.log('turnNumber is:', turnNumber)
 console.log('over is:', over)
@@ -210,3 +166,14 @@ if (over === true) {
 
 console.log('is the game still over?', over)
 console.log('turn number is now:', turnNumber)
+
+module.exports = {
+  gameBoard,
+  addMarker,
+  checkForWin,
+  playerXTurn,
+  player0Turn,
+  turnNumber,
+  turnPlayer,
+  over
+}

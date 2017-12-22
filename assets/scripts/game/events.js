@@ -2,13 +2,22 @@
 
 const gameEngine = require('./game-engine')
 
+const gameBoard = gameEngine.gameBoard
+const addMarker = gameEngine.addMarker
+let turnNumber = gameEngine.turnNumber
+let turnPlayer = gameEngine.turnPlayer
+let over = gameEngine.over
+
 const mark_X = function () {
-  $(this).html('X')
+  $(this).text('X')
   $(this).css('background', '#aaa')
+  console.log('this is:', this)
+  addMarker(this.dataset.cellIndex, 'X')
+  console.log(gameBoard)
 }
 
 const mark_Y = function () {
-  $(this).html('X')
+  $(this).text('Y')
   $(this).css('background', '#aaa')
 }
 
