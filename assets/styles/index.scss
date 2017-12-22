@@ -6,28 +6,32 @@ $cream: #ffeed0;
 $maroon-red: #c83333;
 $red: #f00;
 $github-red: #d53c4c;
+$stack-orange: #f27f33;
 $green: #080;
 $turquise: #1bb580;
 $light-gray: #aaa;
 $med-light-gray: #bbb;
+$med-dark-gray: #ddd;
 $dark-gray: #eee;
 $black: #000;
 
 * {
   box-sizing: border-box;
 }
-// body {
-//   color: white;
-// }
 
-.row {
-  margin: 20;
+body {
+  background: $med-dark-gray;
+
+  .row {
+    border: 1px solid $black;
+    margin: 20px;
+  }
 }
 
 .column {
   float: left;
   // padding: 10px;
-  height: 800px;
+  height: 900px;
 }
 
 .left {
@@ -52,7 +56,7 @@ $black: #000;
   border: 1px solid $black;
   // height: 400px;
   height: auto;
-  margin: auto;
+  margin: 50px auto;
   text-align: center;
   width: 100%;
 }
@@ -60,17 +64,20 @@ $black: #000;
 .login-box {
   background: none;
   border: 0;
+  margin: 0;
 }
 
 .signed-in-box {
   // display: none;
   background: $green;
   height: auto;
+  margin: 0;
   width: 100%;
 }
 
 .right {
   background-color: $med-light-gray;
+  border-left: 1px solid $black;
   // min-width: 50%;
   // width: 75%;
   // min-width: 937.5;
@@ -80,6 +87,7 @@ $black: #000;
 
 .result-box {
   background: $green;
+  border: 0;
   height: 140px;
   padding: 25px;
   text-align: center;
@@ -91,30 +99,107 @@ $black: #000;
   padding: 8px;
 }
 
-.gameboard {
+.game-box {
   background: $cream;
-  height: 460px;
+  border: 0;
+  // border: 1px solid $black;
+  // height: 460px;
+  height: 580px;
   padding: 30px;
   text-align: center;
   width: 100%;
 }
 
-.gameboard-text {
-  background: $red;
-  padding: 8px;
+// Tic-Tac-Toe Box
+.ttt {
+  border: 2px solid $black;
+  padding: 30px;
+  text-align: center;
+  // margin-bottom: 50px;
 }
 
-.right-footer-box {
+.grid {
+  background: $stack-orange;
+  height: 340px;
+  width: 100%;
+}
+
+.table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td {
+  border: 3px solid $black;
+  width: 33.333%;
+
+  ::after {
+    content: '';
+    display: block;
+    margin-top: 100%;
+  }
+}
+
+.cell0 {
+  border-left-color: transparent;
+  border-top-color: transparent;
+}
+
+.cell1 {
+  border-top-color: transparent;
+}
+
+.cell2 {
+  border-right-color: transparent;
+  border-top-color: transparent;
+}
+
+.cell3 {
+  border-left-color: transparent;
+}
+
+.cell5 {
+  border-right-color: transparent;
+}
+
+.cell6 {
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+}
+
+.cell7 {
+  border-bottom-color: transparent;
+}
+
+.cell8 {
+  border-bottom-color: transparent;
+  border-right-color: transparent;
+}
+
+//
+// .gameboard-text {
+//   background: $red;
+//   padding: 8px;
+// }
+//
+
+.turn-box {
+  background: $maroon-red;
+  height: auto;
+}
+
+.footer-box {
   // margin: 0 0 0 25%;
   // width: 50%;
   background: $maroon-red;
-  height: 200px;
+  border: 0;
+  height: 180px;
   padding: 25px;
   text-align: center;
   width: 100%;
 }
 
-.right-footer-text {
+.footer-text {
   background: $dark-gray;
   padding: 8px;
 }
@@ -135,6 +220,10 @@ $black: #000;
   .left {
     height: auto;
     margin: auto;
+  }
+
+  .right {
+    border-left: 0;
   }
 
   .title-box {
