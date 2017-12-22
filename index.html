@@ -26,13 +26,24 @@
           </div>
 
           <div class="column left login-box">
+
             <form id="sign-up">
                 <input type="text" name="credentials[email]" placeholder="Enter Email">
                 <input type="password" name="credentials[password]" placeholder="Enter Password">
                 <input type="password" name="credentials[password_confirmation]" placeholder="Enter Password Again">
                 <input type="submit" name="submit" value="Create Account">
             </form>
+
             <p id="sign-up-message"></p>
+
+            <form id="sign-in">
+              <input name="credentials[email]" type="text" placeholder="Sign-In Email">
+              <input name="credentials[password]" type="password" value="Enter Password">
+              <input type="submit" name="submit" value="Log In">
+            </form>
+
+            <p id="sign-in-message"></p>
+
           </div>
 
         </div>

@@ -5,8 +5,6 @@ const api = require('./api')
 const ui = require('./ui')
 const store = require('../store')
 
-console.log(getFormFields)
-
 const onSignUp = function (event) {
   const data = getFormFields(this)
   event.preventDefault()
@@ -19,6 +17,7 @@ const onSignUp = function (event) {
 
 const addHandlers = function () {
   $('#sign-up').on('submit', onSignUp)
+  $('#sign-in')
 }
 
 module.exports = {

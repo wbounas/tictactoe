@@ -49,7 +49,7 @@ $black: #000;
 .login-box {
   background: $green;
   border: 1px solid $black;
-  height: 25%;
+  height: 200px;
   margin: 50px auto;
   text-align: center;
   width: 100%;
@@ -113,17 +113,22 @@ $black: #000;
 }
 
 // Responsive layout - makes the two columns stack on top of each other instead of next to each other
-@media (max-width: 622px) {
+@media (max-width: 790px) {
   .column {
     width: 100%;
   }
 
   .left {
-    // height: 500px;
-    margin: 0 auto;
+    height: 270px;
+    margin: auto;
   }
 
   .title-box {
+    border-bottom: 0;
     height: 100px;
+  }
+
+  .login-box {
+    height: 140px;
   }
 }
