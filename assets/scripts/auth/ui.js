@@ -29,9 +29,24 @@ const signInFailure = function (error) {
   $('#sign-in-message').css('color', '#f00')
 }
 
+const changePasswordSuccess = function (data) {
+  // console.log below will return UNDEFINED
+  // console.log('Change Password Successful! Data is:', data)
+  $('#change-password-message').html('Changed Password Successfully!')
+  $('#change-password-message').css('color', '#0f0')
+}
+
+const changePasswordFailure = function (error) {
+  console.error(error)
+  $('#change-password-message').html('Error - Check Console')
+  $('#change-password-message').css('color', '#f00')
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
   signInSuccess,
-  signInFailure
+  signInFailure,
+  changePasswordSuccess,
+  changePasswordFailure
 }

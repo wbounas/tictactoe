@@ -16,7 +16,6 @@ const signUp = function (data) {
 }
 
 const signIn = function (data) {
-  console.log('api signIn function "DATA" is:', data)
   return $.ajax({
     url: config.apiOrigin + '/sign-in',
     method: 'POST',
@@ -24,7 +23,21 @@ const signIn = function (data) {
   })
 }
 
+const changePassword = function (data) {
+  // console.log(data)
+  // console.log('When trying to Change Password, the data in "store" is:', store)
+  return $.ajax({
+    url: config.apiOrigin + '/change-password/' + store.user.id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
 module.exports = {
   signUp,
-  signIn
+  signIn,
+  changePassword
 }
