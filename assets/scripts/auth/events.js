@@ -15,9 +15,14 @@ const onSignUp = function (event) {
     .catch(ui.signUpFailure)
 }
 
+const onSignIn = function (event) {
+  event.preventDefault()
+  console.log('this worked?')
+}
+
 const addHandlers = function () {
   $('#sign-up').on('submit', onSignUp)
-  $('#sign-in')
+  $('#sign-in').on('submit', onSignIn)
 }
 
 module.exports = {
