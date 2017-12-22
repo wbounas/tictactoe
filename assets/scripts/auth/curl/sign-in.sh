@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # sh assets/scripts/auth/curl/sign-in.sh
-# EMAIL=email PASSWORD=password
+# EMAIL=wb PASSWORD=wb1
 
 curl "http://tic-tac-toe.wdibos.com/sign-in" \
   --include \
