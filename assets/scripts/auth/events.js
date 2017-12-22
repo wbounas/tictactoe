@@ -16,8 +16,13 @@ const onSignUp = function (event) {
 }
 
 const onSignIn = function (event) {
+  const data = getFormFields(this)
   event.preventDefault()
   console.log('this worked?')
+  console.log(data)
+  api.signIn(data)
+    .then(ui.signInSuccess)
+    .catch(ui.signInFailure)
 }
 
 const addHandlers = function () {

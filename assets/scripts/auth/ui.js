@@ -3,7 +3,7 @@
 const store = require('../store')
 
 const signUpSuccess = function (data) {
-  console.log('Success! Data is:', data)
+  console.log('Sign Up Successful! Data is:', data)
   $('#sign-up-message').html('Account Created')
   $('#sign-up-message').css('color', '#0f0')
 }
@@ -14,7 +14,24 @@ const signUpFailure = function (error) {
   $('#sign-up-message').css('color', '#f00')
 }
 
+const signInSuccess = function (data) {
+  console.log('Sign-In Successful! Data is:', data)
+  $('#sign-in-message').html('Account Signed In')
+  $('#sign-in-message').css('color', '#0f0')
+  store.user = data.user
+  console.log('Stored user is:', store.user)
+  console.log('Stored data is:', store)
+}
+
+const signInFailure = function (error) {
+  console.error(error)
+  $('#sign-in-message').html('Error - Check Console')
+  $('#sign-in-message').css('color', '#f00')
+}
+
 module.exports = {
   signUpSuccess,
-  signUpFailure
+  signUpFailure,
+  signInSuccess,
+  signInFailure
 }
