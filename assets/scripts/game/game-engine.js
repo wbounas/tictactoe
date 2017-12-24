@@ -1,3 +1,5 @@
+'use strict'
+
 // test if JS is working
 console.log('hello world')
 
@@ -5,39 +7,30 @@ console.log('hello world')
 const gameBoard = ['', '', '', '', '', '', '', '', '']
 // console.log('Original Game Board:', gameBoard)
 
-// function to add a marker to the game board
-const addMarker = function (boardIndex, playerSymbol) {
-  if ((playerSymbol === 'X' || playerSymbol === '0') && (boardIndex >= 0 && boardIndex < 9) && (gameBoard[boardIndex] === '')) {
-    // change the array element to the player's symbol
-    gameBoard[boardIndex] = playerSymbol
-    // add turn number incrementer here to only add if a valid move
-    turnNumber++
-    console.log(`You selected marker ${playerSymbol} to be placed at index: ${boardIndex}.`)
-    console.log('Your game board is now:', gameBoard)
-  } else if (boardIndex >= 9) {
-    // if an index parameter is greater than the size of the board array
-    console.log(`Invalid space selection. You selected ${boardIndex}, but you cannot choose an index higher than 8. There are no more spaces after that!`)
-    console.log('The current game board is:', gameBoard)
-  } else if (gameBoard[boardIndex] !== '') {
-    // if the index parameter passed in is NOT an empty string, ie has something inside already
-    console.log(`Invalid space selection. You selected ${boardIndex}, but there is already a marker placed there.`)
-    console.log('The current game board is:', gameBoard)
-  } else if (playerSymbol !== 'X' || playerSymbol !== '0') {
-    console.log(`Invalid symbol selection. You selected ${playerSymbol}, but you are restricted to only X or 0.`)
-    console.log('The current game board is:', gameBoard)
-  } else {
-    console.log(`Need Valid Input! You cannot use ${playerSymbol} on space ${boardIndex}`)
-    console.log('The current game board is:', gameBoard)
+// Define auxiliary Variables
+let turnNumber = 1
+let turnPlayer = ''
+let over = false
+
+const changePlayer = function () {
+  if (turnNumber === 1 || turnNumber === 3 || turnNumber === 5 || turnNumber === 7 || turnNumber === 9) {
+    turnPlayer = 'player_X'
   }
+  if (turnNumber === 2 || turnNumber === 4 || turnNumber === 6 || turnNumber === 8) {
+    turnPlayer = 'player_0'
+  }
+  // return turnPlayer
 }
 
-// // Test addMarker function
-// addMarker(0, 'X')
-// addMarker(0, '0')
-// addMarker(2, 'O')
-// addMarker(12, '3')
-// addMarker(2, '0')
-// addMarker(7, 'thirteen')
+changePlayer()
+
+const turnChanger = function () {
+  // debugger
+  turnNumber++
+  changePlayer()
+  console.log('this worked?')
+  // return turnPlayer
+}
 
 // Check for all winning combinations (only 8)
 const checkForWin = function () {
@@ -71,9 +64,52 @@ const checkForWin = function () {
   }
 }
 
+// function to add a marker to the game board
+const addMarker = function (boardIndex, playerSymbol) {
+  console.log('The current turn is Turn Number #', turnNumber)
+  console.log(`It is currently ${turnPlayer}'s turn.'`)
+  if ((playerSymbol === 'X' || playerSymbol === '0') && (boardIndex >= 0 && boardIndex < 9) && (gameBoard[boardIndex] === '')) {
+    // change the array element to the player's symbol
+    console.log(`You selected marker ${playerSymbol} to be placed at index: ${boardIndex}.`)
+    gameBoard[boardIndex] = playerSymbol
+    console.log('Your game board is now:', gameBoard)
+    // add turn number incrementer here to only add if a valid move
+    turnChanger()
+    console.log('inside addMarker after turnChanger(), turnNumber is:', turnNumber)
+    console.log(`inside addMarker after turnChanger(), It is currently ${turnPlayer}'s turn.'`)
+    checkForWin()
+  } else if (boardIndex >= 9) {
+    // if an index parameter is greater than the size of the board array
+    console.log(`Invalid space selection. You selected ${boardIndex}, but you cannot choose an index higher than 8. There are no more spaces after that!`)
+    console.log('The current game board is:', gameBoard)
+  } else if (gameBoard[boardIndex] !== '') {
+    // if the index parameter passed in is NOT an empty string, ie has something inside already
+    console.log(`Invalid space selection. You selected ${boardIndex}, but there is already a marker placed there.`)
+    console.log('The current game board is:', gameBoard)
+  } else if (playerSymbol !== 'X' || playerSymbol !== '0') {
+    console.log(`Invalid symbol selection. You selected ${playerSymbol}, but you are restricted to only X or 0.`)
+    console.log('The current game board is:', gameBoard)
+  } else {
+    console.log(`Need Valid Input! You cannot use ${playerSymbol} on space ${boardIndex}`)
+    console.log('The current game board is:', gameBoard)
+  }
+  // return turnChanger
+  console.log('right before I leave addMarker, the turnPlayer is:', turnPlayer)
+  return turnPlayer
+}
+
+// // Test addMarker function
+// addMarker(0, 'X')
+// addMarker(0, '0')
+// addMarker(2, 'O')
+// addMarker(12, '3')
+// addMarker(2, '0')
+// addMarker(7, 'thirteen')
+
 // Add a marker wherever Player X Chooses
 const playerXTurn = function (boardIndex) {
   addMarker(boardIndex, 'X')
+  // turnChanger()
 }
 
 // Add a marker wherever Player 0 Chooses
@@ -81,10 +117,43 @@ const player0Turn = function (boardIndex) {
   addMarker(boardIndex, '0')
 }
 
-// Define auxiliary Variables
-let turnNumber = 1
-let turnPlayer = ''
-let over = false
+// restart 'over' state when game is over
+// reset turnNumber back to 1 once the game is finished
+if (over === true) {
+  turnNumber = 1
+  over = false
+}
+
+const placeMarker = function () {
+  // console.log('at the beginning of placeMarker, turnPlayer is:', turnPlayer)
+  if (turnPlayer === 'player_X') {
+    $(this).text('X')
+    $(this).css('background', '#aaa')
+    // console.log('this is:', this)
+    const index = this.dataset.cellIndex
+    console.log('cellIndex is:', index)
+    addMarker(index, 'X')
+    console.log('Inside placeMarker, turnPlayer is:', turnPlayer)
+  } else if (turnPlayer === 'player_0') {
+    $(this).text('0')
+    $(this).css('background', '#aaa')
+    const index = this.dataset.cellIndex
+    addMarker(index, '0')
+  }
+}
+
+module.exports = {
+  gameBoard,
+  turnNumber,
+  turnPlayer,
+  turnChanger,
+  addMarker,
+  checkForWin,
+  playerXTurn,
+  player0Turn,
+  placeMarker,
+  over
+}
 
 // // Turn logic
 // if (turnNumber === 1) {
@@ -153,27 +222,10 @@ let over = false
 //   console.log(`It is currently turn number: ${turnNumber}. It is ${turnPlayer}'s turn.'`)
 //   checkForWin()
 // }
+//
+// console.log('turnNumber is:', turnNumber)
+// console.log('over is:', over)
 
-console.log('turnNumber is:', turnNumber)
-console.log('over is:', over)
-
-// restart 'over' state when game is over
-// reset turnNumber back to 1 once the game is finished
-if (over === true) {
-  turnNumber = 1
-  over = false
-}
-
-console.log('is the game still over?', over)
-console.log('turn number is now:', turnNumber)
-
-module.exports = {
-  gameBoard,
-  addMarker,
-  checkForWin,
-  playerXTurn,
-  player0Turn,
-  turnNumber,
-  turnPlayer,
-  over
-}
+//
+// console.log('is the game still over?', over)
+// console.log('turn number is now:', turnNumber)
