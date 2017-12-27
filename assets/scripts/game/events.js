@@ -2,11 +2,11 @@
 
 const gameEngine = require('./game-engine')
 // const gameBoard = gameEngine.gameBoard
-const addMarker = gameEngine.addMarker
-const playerXTurn = gameEngine.playerXTurn
-const player0Turn = gameEngine.player0Turn
-const turnChanger = gameEngine.turnChanger
-const placeMarker = gameEngine.placeMarker
+// const addMarker = gameEngine.addMarker
+// const playerXTurn = gameEngine.playerXTurn
+// const player0Turn = gameEngine.player0Turn
+// const turnChanger = gameEngine.turnChanger
+// const placeMarker = gameEngine.placeMarker
 // let turnNumber = gameEngine.turnNumber
 // let turnPlayer = gameEngine.turnPlayer
 // let over = gameEngine.over
