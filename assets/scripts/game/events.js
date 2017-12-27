@@ -15,11 +15,15 @@ const testHoverOut = function () {
 const onClickMarker = function () {
   if ($(this).html() === 'x' || $(this).html() === 'o') {
     return console.log("you can't do that")
+  } else if (gameEngine.game.over) {
+    return console.log("game is over, you can't do that")
   }
   $(this).html(gameEngine.game.whoseTurn())
   // console.log(this.dataset.cellIndex)
   gameEngine.game.setMarker(this.dataset.cellIndex)
   gameEngine.game.setGameStatus()
+  console.log(gameEngine.game.cells)
+  console.log(gameEngine.game)
 }
 
 const addClickHandlers = function () {
