@@ -43,6 +43,7 @@ const game = {
   'setMarker': function (cellIndexNumber) {
     if (cellIndexNumber >= 0 && cellIndexNumber < 9 && this.isCellEmpty(cellIndexNumber)) {
       this.cells[cellIndexNumber] = this.whoseTurn()
+      return this.whoseTurn()
     } else {
       return 'not a valid move'
     }

@@ -11,7 +11,8 @@ $(() => {
 
 $(() => {
   authEvents.addHandlers()
-  gameEvents.addHandlers()
+  gameEvents.addClickHandlers()
+  gameEvents.addHoverHandlers()
 })
 
 // use require with a reference to bundle the file and use it in this file
