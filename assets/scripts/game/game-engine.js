@@ -84,10 +84,11 @@ const game = {
   },
   'setGameStatus': function () {
     this.winner = this.whoWon()
+    console.log('winner is:', this.winner)
     const cellEmpty = function (cell) {
       return cell === ''
     }
-    if (!this.cells.some(cellEmpty) && this.winner !== undefined) {
+    if (this.winner !== undefined) {
       this.over = true
     } else if (!this.cells.some(cellEmpty) && this.winner === undefined) {
       this.draw = true
