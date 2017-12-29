@@ -1,6 +1,8 @@
 'use strict'
 
 const gameEngine = require('./game-engine')
+const ui = require('./ui')
+const store = require('../store')
 
 const testHoverIn = function () {
   $(this).css('background', 'green')
@@ -13,15 +15,18 @@ const testHoverOut = function () {
 }
 
 const onClickMarker = function () {
-  if ($(this).html() === 'x' || $(this).html() === 'o') {
-    return console.log("you can't do that")
-  } else if (gameEngine.game.over) {
-    return console.log("game is over, you can't do that")
+  if (gameEngine.game.over) {
+    return $('#current-turn-subtext').html('ERROR - Game is Over, Cannot Place Marker')
+  } else if ($(this).html() === 'x' || $(this).html() === 'o') {
+    return $('#current-turn-subtext').html('ERROR - Cannot Overwrite Placed Marker')
   }
   $(this).html(gameEngine.game.whoseTurn())
   // console.log(this.dataset.cellIndex)
   gameEngine.game.setMarker(this.dataset.cellIndex)
   gameEngine.game.setGameStatus()
+  ui.displayResult()
+  ui.displayTurn()
+  $('#current-turn-subtext').html(null)
   console.log(gameEngine.game.cells)
   console.log(gameEngine.game)
 }

@@ -24,7 +24,7 @@ const game = {
     //   return false
     // }
   },
-  'whoseTurn': function (parameter) {
+  'whoseTurn': function () {
     let numOfX = 0
     let numOfO = 0
     for (let i = 0; i < this.cells.length; i++) {
@@ -45,7 +45,7 @@ const game = {
       this.cells[cellIndexNumber] = this.whoseTurn()
       return this.whoseTurn()
     } else {
-      return 'not a valid move'
+      return 'Not a valid move! Please try again.'
     }
   },
   'whoWon': function () {
@@ -62,6 +62,8 @@ const game = {
     ]
     const isWinningCombination = function (spot1, spot2, spot3) {
       // Why doesn't this.cells[spot1] work???
+      // Is it because it is inside of a function that's inside of a method?
+      // Because this.cells[spot1] returns undefined even when cells is defined inside of whoWon
       if (game.cells[spot1] + game.cells[spot2] + game.cells[spot3] === 'xxx') {
         return true
       } else if (game.cells[spot1] + game.cells[spot2] + game.cells[spot3] === 'ooo') {
@@ -73,8 +75,8 @@ const game = {
     for (let i = 0; i < winningCombinations.length; i++) {
       const winningCombination = winningCombinations[i]
       if (isWinningCombination(winningCombination[0], winningCombination[1], winningCombination[2])) {
-        let firstWinningSpot = winningCombination[0]
-        let winner = game.cells[firstWinningSpot]
+        const firstWinningSpot = winningCombination[0]
+        const winner = game.cells[firstWinningSpot]
         return winner
       }
     }
@@ -85,7 +87,10 @@ const game = {
     const cellEmpty = function (cell) {
       return cell === ''
     }
-    if (!this.cells.some(cellEmpty) || this.winner !== undefined) {
+    if (!this.cells.some(cellEmpty) && this.winner !== undefined) {
+      this.over = true
+    } else if (!this.cells.some(cellEmpty) && this.winner === undefined) {
+      this.draw = true
       this.over = true
     } else {
       this.over = false
@@ -99,7 +104,7 @@ const game = {
       return 'X has won'
     } else if (this.whoWon() === 'o') {
       return 'O has won'
-    } else if (this.over) {
+    } else if (this.draw) {
       return 'Draw'
     }
   }
