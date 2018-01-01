@@ -4,13 +4,11 @@ const gameEngine = require('./game-engine')
 const ui = require('./ui')
 const store = require('../store')
 
-const testHoverIn = function () {
+const hoverIn = function () {
   $(this).css('background', 'green')
-  // $(this).on('click', onClick)
-  // $(this).html(onClick())
 }
 
-const testHoverOut = function () {
+const hoverOut = function () {
   $(this).css('background', 'none')
 }
 
@@ -44,15 +42,15 @@ const addClickHandlers = function () {
 }
 
 const addHoverHandlers = function () {
-  $('#cell0').hover(testHoverIn, testHoverOut)
-  $('#cell1').hover(testHoverIn, testHoverOut)
-  $('#cell2').hover(testHoverIn, testHoverOut)
-  $('#cell3').hover(testHoverIn, testHoverOut)
-  $('#cell4').hover(testHoverIn, testHoverOut)
-  $('#cell5').hover(testHoverIn, testHoverOut)
-  $('#cell6').hover(testHoverIn, testHoverOut)
-  $('#cell7').hover(testHoverIn, testHoverOut)
-  $('#cell8').hover(testHoverIn, testHoverOut)
+  $('#cell0').hover(hoverIn, hoverOut)
+  $('#cell1').hover(hoverIn, hoverOut)
+  $('#cell2').hover(hoverIn, hoverOut)
+  $('#cell3').hover(hoverIn, hoverOut)
+  $('#cell4').hover(hoverIn, hoverOut)
+  $('#cell5').hover(hoverIn, hoverOut)
+  $('#cell6').hover(hoverIn, hoverOut)
+  $('#cell7').hover(hoverIn, hoverOut)
+  $('#cell8').hover(hoverIn, hoverOut)
 }
 
 module.exports = {

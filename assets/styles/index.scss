@@ -113,24 +113,33 @@ body {
 // Tic-Tac-Toe Box
 .ttt {
   border: 2px solid $black;
-  padding: 30px;
+  // padding: 30px;
+  font-size: 80px;
+  height: 400px;
+  margin: 0 auto;
   text-align: center;
+  width: 400px;
   // margin-bottom: 50px;
 }
 
 .grid {
   background: $stack-orange;
-  height: 340px;
+  height: 100%;
+  margin: 0 auto;
   width: 100%;
 }
 
 .table {
   border-collapse: collapse;
+  vertical-align: middle;
   width: 100%;
 }
 
 td {
   border: 3px solid $black;
+  height: 33.333%;
+  text-align: center;
+  vertical-align: middle;
   width: 33.333%;
 
   ::after {
@@ -212,7 +221,7 @@ td {
 }
 
 // Responsive layout - makes the two columns stack on top of each other instead of next to each other
-@media (max-width: 790px) {
+@media (max-width: 880px) {
   .column {
     width: 100%;
   }
