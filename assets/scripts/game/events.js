@@ -69,6 +69,7 @@ const addHoverHandlers = function () {
 }
 
 module.exports = {
+  onNewGame,
   addClickHandlers,
   addHoverHandlers
 }

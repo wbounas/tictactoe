@@ -1,5 +1,6 @@
 'use strict'
 
+const gameEvents = require('../game/events')
 const store = require('../store')
 
 const signUpSuccess = function (data) {
@@ -14,6 +15,7 @@ const signUpSuccess = function (data) {
   $('#sign-up').each(function () {
     this.reset()
   })
+  gameEvents.onNewGame()
 }
 
 const signUpFailure = function (error) {
@@ -35,6 +37,7 @@ const signInSuccess = function (data) {
   $('#sign-in').each(function () {
     this.reset()
   })
+  gameEvents.onNewGame()
 }
 
 const signInFailure = function (error) {

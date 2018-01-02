@@ -26,6 +26,10 @@ const displayTurn = function () {
 const newGameSuccess = function (data) {
   console.log('Create Game Success! Data is:', data)
   console.log('Game ID is:', data.game.id)
+  const apiGame = data.game
+  gameEngine.game.id = apiGame.id
+  gameEngine.game.cells = apiGame.cells
+  gameEngine.game.player_x = apiGame.player_x
   clearGrid()
 }
 
