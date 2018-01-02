@@ -23,7 +23,19 @@ const displayTurn = function () {
 //   }
 // }
 
+const newGameSuccess = function (data) {
+  console.log('Create Game Success! Data is:', data)
+  console.log('Game ID is:', data.game.id)
+}
+
+const newGameFailure = function (error) {
+  console.log('ERROR Occurred')
+  console.error(error)
+}
+
 module.exports = {
   displayResult,
-  displayTurn
+  displayTurn,
+  newGameSuccess,
+  newGameFailure
 }

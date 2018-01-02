@@ -24,6 +24,7 @@ body {
 
   .row {
     border: 1px solid $black;
+    height: auto;
     margin: 20px;
   }
 }
@@ -31,11 +32,12 @@ body {
 .column {
   float: left;
   // padding: 10px;
-  height: 900px;
+  height: 840px;
 }
 
 .left {
   background-color: $light-gray;
+  height: auto;
   padding: 10px;
   // min-width: 312.5px;
   width: 25%;
@@ -78,6 +80,7 @@ body {
 .right {
   background-color: $med-light-gray;
   border-left: 1px solid $black;
+  height: auto;
   // min-width: 50%;
   // width: 75%;
   // min-width: 937.5;
@@ -88,7 +91,8 @@ body {
 .result-box {
   background: $green;
   border: 0;
-  height: 140px;
+  // height: 140px;
+  height: auto;
   padding: 25px;
   text-align: center;
   width: 100%;
@@ -104,7 +108,7 @@ body {
   border: 0;
   // border: 1px solid $black;
   // height: 460px;
-  height: 580px;
+  height: auto;
   padding: 30px;
   text-align: center;
   width: 100%;
@@ -194,6 +198,7 @@ td {
 
 .turn-box {
   background: $maroon-red;
+  font-size: 30px;
   height: auto;
 }
 
@@ -202,15 +207,33 @@ td {
   // width: 50%;
   background: $maroon-red;
   border: 0;
-  height: 180px;
+  height: 100%;
   padding: 25px;
   text-align: center;
   width: 100%;
 }
 
-.footer-text {
+.footer-column {
+  float: left;
+  width: 50%;
+
+  ::after {
+    clear: both;
+    content: '';
+    display: table;
+  }
+}
+
+.footer-boxes {
   background: $dark-gray;
+  border: 1px solid $black;
+  border-radius: 5px;
+}
+
+.footer-text {
+  // background: $dark-gray;
   padding: 8px;
+  width: 200px;
 }
 
 // Clear floats after the columns

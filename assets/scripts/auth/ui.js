@@ -6,12 +6,23 @@ const signUpSuccess = function (data) {
   console.log('Sign Up Successful! Data is:', data)
   $('#sign-up-message').html('Account Created')
   $('#sign-up-message').css('color', '#0f0')
+  // let signUpMessage = document.getElementById('saved')
+  // console.log(signUpMessage)
+  // signUpMessage = setTimeout(function () {
+  //   signUpMessage.textContent = ''
+  // }, 5000)
+  $('#sign-up').each(function () {
+    this.reset()
+  })
 }
 
 const signUpFailure = function (error) {
   console.error(error)
   $('#sign-up-message').html('Error - Check Console')
   $('#sign-up-message').css('color', '#f00')
+  $('#sign-up').each(function () {
+    this.reset()
+  })
 }
 
 const signInSuccess = function (data) {
@@ -21,12 +32,18 @@ const signInSuccess = function (data) {
   store.user = data.user
   console.log('Stored user is:', store.user)
   console.log('Stored data is:', store)
+  $('#sign-in').each(function () {
+    this.reset()
+  })
 }
 
 const signInFailure = function (error) {
   console.error(error)
   $('#sign-in-message').html('Error - Check Console')
   $('#sign-in-message').css('color', '#f00')
+  $('#sign-in').each(function () {
+    this.reset()
+  })
 }
 
 const changePasswordSuccess = function (data) {
@@ -34,12 +51,18 @@ const changePasswordSuccess = function (data) {
   // console.log('Change Password Successful! Data is:', data)
   $('#change-password-message').html('Changed Password Successfully!')
   $('#change-password-message').css('color', '#0f0')
+  $('#change-password').each(function () {
+    this.reset()
+  })
 }
 
 const changePasswordFailure = function (error) {
   console.error(error)
   $('#change-password-message').html('Error - Check Console')
   $('#change-password-message').css('color', '#f00')
+  $('#change-password').each(function () {
+    this.reset()
+  })
 }
 
 const signOutSuccess = function (data) {

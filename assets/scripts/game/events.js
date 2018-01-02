@@ -1,5 +1,6 @@
 'use strict'
 
+const api = require('./api')
 const gameEngine = require('./game-engine')
 const ui = require('./ui')
 const store = require('../store')
@@ -10,6 +11,10 @@ const hoverIn = function () {
 
 const hoverOut = function () {
   $(this).css('background', 'none')
+}
+
+const gameButtonHoverOut = function () {
+  $(this).css('background', '#ddd')
 }
 
 const onClickMarker = function () {
@@ -29,6 +34,14 @@ const onClickMarker = function () {
   console.log(gameEngine.game)
 }
 
+const onNewGame = function () {
+  const blankGame = {}
+  console.log('this worked?')
+  api.createGame(blankGame)
+    .then(ui.newGameSuccess)
+    .catch(ui.newGameFailure)
+}
+
 const addClickHandlers = function () {
   $('#cell0').on('click', onClickMarker)
   $('#cell1').on('click', onClickMarker)
@@ -39,6 +52,7 @@ const addClickHandlers = function () {
   $('#cell6').on('click', onClickMarker)
   $('#cell7').on('click', onClickMarker)
   $('#cell8').on('click', onClickMarker)
+  $('.new-game-box').on('click', onNewGame)
 }
 
 const addHoverHandlers = function () {
@@ -51,6 +65,7 @@ const addHoverHandlers = function () {
   $('#cell6').hover(hoverIn, hoverOut)
   $('#cell7').hover(hoverIn, hoverOut)
   $('#cell8').hover(hoverIn, hoverOut)
+  $('.new-game-box').hover(hoverIn, gameButtonHoverOut)
 }
 
 module.exports = {

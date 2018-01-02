@@ -13,6 +13,13 @@ const onSignUp = function (event) {
   api.signUp(data)
     .then(ui.signUpSuccess)
     .catch(ui.signUpFailure)
+  // document.getElementById('sign-up-message').addEventListener('click', function () {
+  //   const self = this
+  //   setTimeout(function () {
+  //     self.textContent = ''
+  //   }, 5000)
+  // })
+
 }
 
 const onSignIn = function (event) {
