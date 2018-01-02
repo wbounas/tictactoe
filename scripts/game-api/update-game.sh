@@ -1,4 +1,4 @@
-'use strict'
+#!/bin/bash
 
 # sh scripts/auth/sign-in.sh
 # EMAIL=wb PASSWORD=wb1 or wb2

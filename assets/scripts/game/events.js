@@ -18,6 +18,9 @@ const gameButtonHoverOut = function () {
 }
 
 const onClickMarker = function () {
+  if (store.user === undefined) {
+    return ''
+  }
   if (gameEngine.game.over) {
     return $('#current-turn-subtext').html('ERROR - Game is Over, Cannot Place Marker')
   } else if ($(this).html() === 'x' || $(this).html() === 'o') {
@@ -26,7 +29,15 @@ const onClickMarker = function () {
   $(this).html(gameEngine.game.whoseTurn())
   // console.log(this.dataset.cellIndex)
   gameEngine.game.setMarker(this.dataset.cellIndex)
+  const data = {}
+  data.game = {}
+  data.game.cell = {}
+  data.game.cell.index = this.dataset.cellIndex
+  data.game.cell.value = $(this).html()
+  // console.log(data)
   gameEngine.game.setGameStatus()
+  data.game.over = gameEngine.game.over
+  api.updateGame(data)
   ui.displayResult()
   ui.displayTurn()
   $('#current-turn-subtext').html(null)
@@ -40,6 +51,7 @@ const onNewGame = function () {
   api.createGame(blankGame)
     .then(ui.newGameSuccess)
     .catch(ui.newGameFailure)
+  // $('.game-id-box').html(`Game ID: ${gameEngine.game.id}`)
 }
 
 const addClickHandlers = function () {

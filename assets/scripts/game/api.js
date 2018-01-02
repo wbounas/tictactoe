@@ -1,6 +1,7 @@
 'use strict'
 
 const config = require('../config')
+const gameEngine = require('../game/game-engine')
 const store = require('../store')
 
 const createGame = function (data) {
@@ -14,6 +15,21 @@ const createGame = function (data) {
   })
 }
 
+const updateGame = function (data) {
+  console.log('update data is:', data)
+  // console.log('data.example.id is:', data.example.id)
+  // debugger
+  return $.ajax({
+    url: config.apiOrigin + '/games/' + gameEngine.game.id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
 module.exports = {
-  createGame
+  createGame,
+  updateGame
 }

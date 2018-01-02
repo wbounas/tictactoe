@@ -19,7 +19,6 @@ const onSignUp = function (event) {
   //     self.textContent = ''
   //   }, 5000)
   // })
-
 }
 
 const onSignIn = function (event) {

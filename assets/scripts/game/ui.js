@@ -26,11 +26,17 @@ const displayTurn = function () {
 const newGameSuccess = function (data) {
   console.log('Create Game Success! Data is:', data)
   console.log('Game ID is:', data.game.id)
-  const apiGame = data.game
-  gameEngine.game.id = apiGame.id
-  gameEngine.game.cells = apiGame.cells
-  gameEngine.game.player_x = apiGame.player_x
+  store.apiGame = data.game
+  gameEngine.game.id = store.apiGame.id
+  gameEngine.game.cells = store.apiGame.cells
+  gameEngine.game.player_x = store.apiGame.player_x
+  gameEngine.game.over = store.apiGame.over
+  gameEngine.game.winner = undefined
   clearGrid()
+  $('#result').html('R E S U L T')
+  $('#current-turn').html(`It is X's Turn!`)
+  $('.game-id-box').html(`Game ID: ${data.game.id}`)
+  console.log('Now, the game object is:', gameEngine.game)
 }
 
 const newGameFailure = function (error) {
