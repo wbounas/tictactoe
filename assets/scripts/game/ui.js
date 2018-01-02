@@ -26,11 +26,24 @@ const displayTurn = function () {
 const newGameSuccess = function (data) {
   console.log('Create Game Success! Data is:', data)
   console.log('Game ID is:', data.game.id)
+  clearGrid()
 }
 
 const newGameFailure = function (error) {
   console.log('ERROR Occurred')
   console.error(error)
+}
+
+const clearGrid = function () {
+  $('#cell0').html('')
+  $('#cell1').html('')
+  $('#cell2').html('')
+  $('#cell3').html('')
+  $('#cell4').html('')
+  $('#cell5').html('')
+  $('#cell6').html('')
+  $('#cell7').html('')
+  $('#cell8').html('')
 }
 
 module.exports = {
