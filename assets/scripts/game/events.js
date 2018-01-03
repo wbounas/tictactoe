@@ -18,7 +18,7 @@ const gameButtonHoverOut = function () {
 }
 
 const onClickMarker = function () {
-  if (store.user === undefined) {
+  if (store.user === undefined || store.user === null) {
     return ''
   }
   if (gameEngine.game.over) {

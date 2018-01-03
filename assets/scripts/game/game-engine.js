@@ -116,7 +116,7 @@ const playerStats = {
   'stats': {
     wins: 0,
     draws: 0,
-    loses: 0
+    losses: 0
   },
   'getStats': function (pastGame) {
     const isCellEmpty = function (cellIndexNumber) {
@@ -155,7 +155,7 @@ const playerStats = {
       if (isWinningCombination(winningCombination[0], winningCombination[1], winningCombination[2]) === 'x') {
         playerStats.stats.wins++
       } else if (isWinningCombination(winningCombination[0], winningCombination[1], winningCombination[2]) === 'o') {
-        playerStats.stats.loses++
+        playerStats.stats.losses++
       }
     }
     if (!pastGame.cells.every(isCellEmpty)) {

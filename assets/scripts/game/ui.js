@@ -3,9 +3,10 @@
 const gameEngine = require('./game-engine')
 const store = require('../store')
 
-const currentdate = new Date()
-const datetime = 'Time: ' + currentdate.getHours() + ':' + currentdate.getMinutes() + ' on ' + (currentdate.getMonth() + 1) + '/' + currentdate.getDate() + '/' + currentdate.getFullYear()
-$('.time-box').html(datetime)
+// Code below renders current time and date
+const currentDate = new Date()
+const dateTime = 'Time: ' + currentDate.getHours() + ':' + currentDate.getMinutes() + ' on ' + (currentDate.getMonth() + 1) + '/' + currentDate.getDate() + '/' + currentDate.getFullYear()
+$('.time-box').html(dateTime)
 
 const displayResult = function () {
   $('#result').html(gameEngine.game.displayGameStatus())
@@ -61,14 +62,15 @@ const getOverGamesSuccess = function (data) {
     return gameEngine.playerStats.getStats(data.games[data.games.length - 1])
   }
   gameEngine.playerStats.stats.wins = 0
-  gameEngine.playerStats.stats.loses = 0
+  gameEngine.playerStats.stats.losses = 0
   gameEngine.playerStats.stats.draws = 0
   for (let i = 0; i < store.pastGames.length; i++) {
     console.log(store.pastGames[i])
     const that = store.pastGames[i]
     gameEngine.playerStats.getStats(that)
   }
-  $('.score-box').html(`Player ${store.user.email} Record - Wins: ${gameEngine.playerStats.stats.wins} Loses: ${gameEngine.playerStats.stats.loses} Draws: ${gameEngine.playerStats.stats.draws}`)
+  $('.player-box').html(`<b>Player X:</b> ${store.user.email}`)
+  $('.time-box').html(`<p><b> - Tic-Tac-Toe Record -  </b></p> <p> Wins: ${gameEngine.playerStats.stats.wins} Losses: ${gameEngine.playerStats.stats.losses} Draws: ${gameEngine.playerStats.stats.draws}</p>`)
 }
 
 const getOverGamesFailure = function (error) {
@@ -94,5 +96,6 @@ module.exports = {
   newGameSuccess,
   newGameFailure,
   getOverGamesSuccess,
-  getOverGamesFailure
+  getOverGamesFailure,
+  dateTime
 }

@@ -1,6 +1,7 @@
 'use strict'
 
 const gameEvents = require('../game/events')
+const gameUi = require('../game/ui')
 const store = require('../store')
 
 const signUpSuccess = function (data) {
@@ -39,10 +40,10 @@ const signInSuccess = function (data) {
   $('#sign-in').each(function () {
     this.reset()
   })
-  setTimeout(function () { $('.login-box').css('visibility', 'hidden') }, 1000)
+  setTimeout(function () { $('.login-box').css('display', 'none') }, 1000)
   // $('.login-box').css('visibility', 'hidden')
   setTimeout(function () { $('#sign-in-message').html('') }, 500)
-  setTimeout(function () { $('.signed-in-box').css('visibility', 'visible') }, 1000)
+  setTimeout(function () { $('.signed-in-box').css('display', 'inline-block') }, 1000)
   // $('.signed-in-box').css('visibility', 'visible')
   gameEvents.getPlayerStats()
   gameEvents.onNewGame()
@@ -65,6 +66,7 @@ const changePasswordSuccess = function (data) {
   $('#change-password').each(function () {
     this.reset()
   })
+  setTimeout(function () { $('#change-password-message').html('') }, 5000)
 }
 
 const changePasswordFailure = function (error) {
@@ -78,11 +80,16 @@ const changePasswordFailure = function (error) {
 
 const signOutSuccess = function (data) {
   console.log('Sign-Out Data is:', data)
+  store.user = null
   $('#sign-out-message').html('Log Out Successful!')
   $('#sign-out-message').css('color', '#0f0')
-  setTimeout(function () { $('.signed-in-box').css('visibility', 'hidden') }, 1000)
+  $('.new-game-box').html('Please Sign In to Play!')
+  $('#current-turn').html('Please Sign In to Play!')
+  $('.time-box').html(gameUi.dateTime)
+  $('.player-box').html('Player Score')
+  setTimeout(function () { $('.signed-in-box').css('display', 'none') }, 1000)
   setTimeout(function () { $('#sign-out-message').html('') }, 500)
-  setTimeout(function () { $('.login-box').css('visibility', 'visible') }, 1000)
+  setTimeout(function () { $('.login-box').css('display', 'inline-block') }, 1000)
 }
 
 const signOutFailure = function (error) {

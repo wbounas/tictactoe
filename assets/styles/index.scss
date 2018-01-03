@@ -47,7 +47,7 @@ body {
 .title-box {
   background-color: $green;
   border: 1px solid $black;
-  height: 200px;
+  height: 140px;
   margin: 25px auto;
   min-width: 60%;
   text-align: center;
@@ -82,9 +82,9 @@ body {
 .signed-in-box {
   // display: none;
   background: $green;
+  display: none;
   height: auto;
   margin: 0;
-  visibility: hidden;
   width: 100%;
 }
 
@@ -256,7 +256,7 @@ td {
 }
 
 // Responsive layout - makes the two columns stack on top of each other instead of next to each other
-@media (max-width: 880px) {
+@media (max-width: 940px) {
   .column {
     width: 100%;
   }
