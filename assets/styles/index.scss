@@ -47,7 +47,7 @@ body {
   background-color: $green;
   border: 1px solid $black;
   height: 200px;
-  margin: 50px auto;
+  margin: 25px auto;
   min-width: 60%;
   text-align: center;
   width: 100%;
@@ -58,7 +58,7 @@ body {
   border: 1px solid $black;
   // height: 400px;
   height: auto;
-  margin: 50px auto;
+  margin: 25px auto 100%;
   text-align: center;
   width: 100%;
 }
@@ -228,6 +228,7 @@ td {
   background: $dark-gray;
   border: 1px solid $black;
   border-radius: 5px;
+  margin: 0 auto;
 }
 
 .footer-text {
@@ -261,6 +262,14 @@ td {
   .title-box {
     border-bottom: 0;
     // height: 100px;
+  }
+
+  .ttt {
+    width: 100%;
+  }
+
+  .footer-boxes {
+    width: auto;
   }
 
   // .auth-box {

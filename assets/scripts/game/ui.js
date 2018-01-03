@@ -34,12 +34,16 @@ const newGameSuccess = function (data) {
   gameEngine.game.winner = undefined
   clearGrid()
   $('#result').html('R E S U L T')
+  $('#current-turn-subtext').html('')
   $('#current-turn').html(`It is X's Turn!`)
   $('.game-id-box').html(`Game ID: ${data.game.id}`)
   console.log('Now, the game object is:', gameEngine.game)
 }
 
 const newGameFailure = function (error) {
+  if (store.user === undefined) {
+    $('.new-game-box').html('Please Sign In to Play!')
+  }
   console.log('ERROR Occurred')
   console.error(error)
 }

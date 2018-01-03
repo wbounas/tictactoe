@@ -5,8 +5,10 @@ const store = require('../store')
 
 const signUpSuccess = function (data) {
   console.log('Sign Up Successful! Data is:', data)
-  $('#sign-up-message').html('Account Created')
+  $('#sign-up-message').html('Account Created! Please Sign In to Play')
   $('#sign-up-message').css('color', '#0f0')
+  store.user = data.user
+  console.log('in signUpSuccess, store.user is:', store.user)
   // let signUpMessage = document.getElementById('saved')
   // console.log(signUpMessage)
   // signUpMessage = setTimeout(function () {
@@ -15,7 +17,6 @@ const signUpSuccess = function (data) {
   $('#sign-up').each(function () {
     this.reset()
   })
-  gameEvents.onNewGame()
 }
 
 const signUpFailure = function (error) {

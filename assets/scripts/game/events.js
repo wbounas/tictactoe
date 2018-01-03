@@ -28,30 +28,40 @@ const onClickMarker = function () {
   }
   $(this).html(gameEngine.game.whoseTurn())
   // console.log(this.dataset.cellIndex)
-  gameEngine.game.setMarker(this.dataset.cellIndex)
-  const data = {}
-  data.game = {}
-  data.game.cell = {}
-  data.game.cell.index = this.dataset.cellIndex
-  data.game.cell.value = $(this).html()
-  // console.log(data)
-  gameEngine.game.setGameStatus()
-  data.game.over = gameEngine.game.over
-  api.updateGame(data)
-  ui.displayResult()
-  ui.displayTurn()
-  $('#current-turn-subtext').html(null)
-  console.log(gameEngine.game.cells)
-  console.log(gameEngine.game)
+  if (store.user.token) {
+    gameEngine.game.setMarker(this.dataset.cellIndex)
+    const data = {}
+    data.game = {}
+    data.game.cell = {}
+    data.game.cell.index = this.dataset.cellIndex
+    data.game.cell.value = $(this).html()
+    // console.log(data)
+    gameEngine.game.setGameStatus()
+    data.game.over = gameEngine.game.over
+    api.updateGame(data)
+    ui.displayResult()
+    ui.displayTurn()
+    $('#current-turn-subtext').html(null)
+    console.log(gameEngine.game.cells)
+    console.log(gameEngine.game)
+  } else if (!store.user.token) {
+    $(this).html('')
+  }
 }
 
 const onNewGame = function () {
-  const blankGame = {}
-  console.log('this worked?')
-  api.createGame(blankGame)
-    .then(ui.newGameSuccess)
-    .catch(ui.newGameFailure)
-  // $('.game-id-box').html(`Game ID: ${gameEngine.game.id}`)
+  // debugger
+  if (!store.user || !store.user.token) {
+    $('.new-game-box').html('Please Sign In to Play!')
+  } else if (store.user.token) {
+    $('.new-game-box').html('New Game')
+    const blankGame = {}
+    console.log('this worked?')
+    api.createGame(blankGame)
+      .then(ui.newGameSuccess)
+      .catch(ui.newGameFailure)
+    $('.game-id-box').html(`Game ID: ${gameEngine.game.id}`)
+  }
 }
 
 const addClickHandlers = function () {
