@@ -37,6 +37,7 @@ const newGameSuccess = function (data) {
   gameEngine.game.player_x = store.apiGame.player_x
   gameEngine.game.over = store.apiGame.over
   gameEngine.game.winner = undefined
+  gameEngine.game.draw = false
   clearGrid()
   $('#result').html('R E S U L T')
   $('#current-turn-subtext').html('')
