@@ -57,10 +57,22 @@ const onNewGame = function () {
     $('.new-game-box').html('New Game')
     const blankGame = {}
     console.log('this worked?')
+    console.log('store.user is:', store.user)
     api.createGame(blankGame)
       .then(ui.newGameSuccess)
       .catch(ui.newGameFailure)
     $('.game-id-box').html(`Game ID: ${gameEngine.game.id}`)
+  }
+}
+
+const getPlayerStats = function () {
+  if (store.user.token) {
+    $('.score-box').html(`${store.user.email} is the player.`)
+    api.getOverGames()
+      .then(ui.getOverGamesSuccess)
+      .catch(ui.getOverGamesFailure)
+    // api.getOvergames()
+    //   .then($('.score-box').html(`${store.user.email}:`))
   }
 }
 
@@ -75,6 +87,7 @@ const addClickHandlers = function () {
   $('#cell7').on('click', onClickMarker)
   $('#cell8').on('click', onClickMarker)
   $('.new-game-box').on('click', onNewGame)
+  $('.new-game-box').on('click', getPlayerStats)
 }
 
 const addHoverHandlers = function () {
@@ -93,5 +106,6 @@ const addHoverHandlers = function () {
 module.exports = {
   onNewGame,
   addClickHandlers,
-  addHoverHandlers
+  addHoverHandlers,
+  getPlayerStats
 }

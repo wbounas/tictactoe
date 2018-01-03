@@ -64,6 +64,7 @@ const game = {
       // Why doesn't this.cells[spot1] work???
       // Is it because it is inside of a function that's inside of a method?
       // Because this.cells[spot1] returns undefined even when cells is defined inside of whoWon
+      console.log('this is', this)
       if (game.cells[spot1] + game.cells[spot2] + game.cells[spot3] === 'xxx') {
         return true
       } else if (game.cells[spot1] + game.cells[spot2] + game.cells[spot3] === 'ooo') {
@@ -111,8 +112,66 @@ const game = {
   }
 }
 
+const playerStats = {
+  'stats': {
+    wins: 0,
+    draws: 0,
+    loses: 0
+  },
+  'getStats': function (pastGame) {
+    const isCellEmpty = function (cellIndexNumber) {
+      for (let i = 0; i < pastGame.cells.length; i++) {
+        if (pastGame.cells[i] === '') {
+          return true
+        }
+      }
+    }
+    const winningCombinations = [
+      [0, 1, 2],
+      [3, 4, 5],
+      [6, 7, 8],
+      [0, 3, 6],
+      [1, 4, 7],
+      [2, 5, 8],
+      [0, 4, 8],
+      [2, 4, 6]
+    ]
+    const isWinningCombination = function (spot1, spot2, spot3) {
+      // Why doesn't this.cells[spot1] work???
+      // Is it because it is inside of a function that's inside of a method?
+      // Because this.cells[spot1] returns undefined even when cells is defined inside of whoWon
+      // console.log('this is', this)
+      if (pastGame.cells[spot1] + pastGame.cells[spot2] + pastGame.cells[spot3] === 'xxx') {
+        return 'x'
+      } else if (pastGame.cells[spot1] + pastGame.cells[spot2] + pastGame.cells[spot3] === 'ooo') {
+        return 'o'
+      } else {
+        return false
+      }
+    }
+    for (let i = 0; i < winningCombinations.length; i++) {
+      // console.log('stats are:', this.stats)
+      const winningCombination = winningCombinations[i]
+      if (isWinningCombination(winningCombination[0], winningCombination[1], winningCombination[2]) === 'x') {
+        playerStats.stats.wins++
+      } else if (isWinningCombination(winningCombination[0], winningCombination[1], winningCombination[2]) === 'o') {
+        playerStats.stats.loses++
+      }
+    }
+    if (!pastGame.cells.every(isCellEmpty)) {
+      playerStats.stats.draws++
+    }
+    // else if (!isWinningCombination(winningCombination[0], winningCombination[1], winningCombination[2])) {
+    //   playerStats.stats.loses++
+    // }
+    console.log('stats are', playerStats.stats)
+    return playerStats.stats
+  }
+}
+
 module.exports = {
-  game
+  game,
+  playerStats
 }
 
 // // starting empty game board

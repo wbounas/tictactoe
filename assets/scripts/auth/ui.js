@@ -38,6 +38,7 @@ const signInSuccess = function (data) {
   $('#sign-in').each(function () {
     this.reset()
   })
+  gameEvents.getPlayerStats()
   gameEvents.onNewGame()
 }
 

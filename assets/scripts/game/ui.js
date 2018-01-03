@@ -3,6 +3,12 @@
 const gameEngine = require('./game-engine')
 const store = require('../store')
 
+const currentdate = new Date()
+const datetime = 'Time: ' + currentdate.getHours() + ':' + currentdate.getMinutes() + ' on ' + (currentdate.getMonth() + 1) + '/' + currentdate.getDate() + '/' + currentdate.getFullYear()
+$('.time-box').html(datetime)
+
+document.write(datetime);
+
 const displayResult = function () {
   $('#result').html(gameEngine.game.displayGameStatus())
 }
@@ -48,6 +54,30 @@ const newGameFailure = function (error) {
   console.error(error)
 }
 
+const getOverGamesSuccess = function (data) {
+  const firstPastGamesLength = data.games.length
+  store.pastGames = data.games
+  console.log('store.pastGames is:', store.pastGames)
+  console.log('firstPastGamesLength is:', firstPastGamesLength)
+  if (firstPastGamesLength !== store.pastGames.length) {
+    return gameEngine.playerStats.getStats(data.games[data.games.length - 1])
+  }
+  gameEngine.playerStats.stats.wins = 0
+  gameEngine.playerStats.stats.loses = 0
+  gameEngine.playerStats.stats.draws = 0
+  for (let i = 0; i < store.pastGames.length; i++) {
+    console.log(store.pastGames[i])
+    const that = store.pastGames[i]
+    gameEngine.playerStats.getStats(that)
+  }
+  $('.score-box').html(`Player ${store.user.email} Record - Wins: ${gameEngine.playerStats.stats.wins} Loses: ${gameEngine.playerStats.stats.loses} Draws: ${gameEngine.playerStats.stats.draws}`)
+}
+
+const getOverGamesFailure = function (error) {
+  console.log('ERROR OCCURED')
+  console.error(error)
+}
+
 const clearGrid = function () {
   $('#cell0').html('')
   $('#cell1').html('')
@@ -64,5 +94,7 @@ module.exports = {
   displayResult,
   displayTurn,
   newGameSuccess,
-  newGameFailure
+  newGameFailure,
+  getOverGamesSuccess,
+  getOverGamesFailure
 }
