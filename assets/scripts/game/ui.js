@@ -7,8 +7,6 @@ const currentdate = new Date()
 const datetime = 'Time: ' + currentdate.getHours() + ':' + currentdate.getMinutes() + ' on ' + (currentdate.getMonth() + 1) + '/' + currentdate.getDate() + '/' + currentdate.getFullYear()
 $('.time-box').html(datetime)
 
-document.write(datetime);
-
 const displayResult = function () {
   $('#result').html(gameEngine.game.displayGameStatus())
 }

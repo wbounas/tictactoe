@@ -4,6 +4,7 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 
 $cream: #ffeed0;
 $maroon-red: #c83333;
+$bootstrap-blue: #377bb5;
 $red: #f00;
 $github-red: #d53c4c;
 $stack-orange: #f27f33;
@@ -53,6 +54,15 @@ body {
   width: 100%;
 }
 
+.sign-up-form {
+  display: none;
+  visibility: hidden;
+}
+
+.sign-up-message {
+  width: 100%;
+}
+
 .auth-box {
   background: $green;
   border: 1px solid $black;
@@ -74,6 +84,7 @@ body {
   background: $green;
   height: auto;
   margin: 0;
+  visibility: hidden;
   width: 100%;
 }
 

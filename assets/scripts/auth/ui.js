@@ -5,8 +5,9 @@ const store = require('../store')
 
 const signUpSuccess = function (data) {
   console.log('Sign Up Successful! Data is:', data)
-  $('#sign-up-message').html('Account Created! Please Sign In to Play')
-  $('#sign-up-message').css('color', '#0f0')
+  $('.sign-up-message').html('Account Created! Please Sign In to Play')
+  $('.sign-up-message').css('color', '#0f0')
+  $('.sign-up-message').css('background', '#444')
   store.user = data.user
   console.log('in signUpSuccess, store.user is:', store.user)
   // let signUpMessage = document.getElementById('saved')
@@ -21,8 +22,8 @@ const signUpSuccess = function (data) {
 
 const signUpFailure = function (error) {
   console.error(error)
-  $('#sign-up-message').html('Error - Check Console')
-  $('#sign-up-message').css('color', '#f00')
+  $('.sign-up-message').html('Error - Check Console')
+  $('.sign-up-message').css('color', '#f00')
   $('#sign-up').each(function () {
     this.reset()
   })
@@ -38,6 +39,11 @@ const signInSuccess = function (data) {
   $('#sign-in').each(function () {
     this.reset()
   })
+  setTimeout(function () { $('.login-box').css('visibility', 'hidden') }, 1000)
+  // $('.login-box').css('visibility', 'hidden')
+  setTimeout(function () { $('#sign-in-message').html('') }, 500)
+  setTimeout(function () { $('.signed-in-box').css('visibility', 'visible') }, 1000)
+  // $('.signed-in-box').css('visibility', 'visible')
   gameEvents.getPlayerStats()
   gameEvents.onNewGame()
 }
@@ -74,6 +80,9 @@ const signOutSuccess = function (data) {
   console.log('Sign-Out Data is:', data)
   $('#sign-out-message').html('Log Out Successful!')
   $('#sign-out-message').css('color', '#0f0')
+  setTimeout(function () { $('.signed-in-box').css('visibility', 'hidden') }, 1000)
+  setTimeout(function () { $('#sign-out-message').html('') }, 500)
+  setTimeout(function () { $('.login-box').css('visibility', 'visible') }, 1000)
 }
 
 const signOutFailure = function (error) {
