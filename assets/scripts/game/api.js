@@ -16,7 +16,7 @@ const createGame = function (data) {
 }
 
 const updateGame = function (data) {
-  console.log('update data is:', data)
+  // console.log('update data is:', data)
   // console.log('data.example.id is:', data.example.id)
   // debugger
   return $.ajax({

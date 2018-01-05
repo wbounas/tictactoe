@@ -43,7 +43,7 @@ const onChangePassword = function (event) {
 
 const onSignOut = function (event) {
   event.preventDefault()
-  console.log('this worked?')
+  // console.log('this worked?')
   api.signOut()
     .then(ui.signOutSuccess)
     .catch(ui.signOutFailure)

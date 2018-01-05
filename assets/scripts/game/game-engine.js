@@ -1,7 +1,7 @@
 'use strict'
 
 // test if JS is working
-console.log('hello world')
+// console.log('hello world')
 
 // create game object
 const game = {
@@ -64,7 +64,7 @@ const game = {
       // Why doesn't this.cells[spot1] work???
       // Is it because it is inside of a function that's inside of a method?
       // Because this.cells[spot1] returns undefined even when cells is defined inside of whoWon
-      console.log('this is', this)
+      // console.log('this is', this)
       if (game.cells[spot1] + game.cells[spot2] + game.cells[spot3] === 'xxx') {
         return true
       } else if (game.cells[spot1] + game.cells[spot2] + game.cells[spot3] === 'ooo') {
@@ -85,7 +85,7 @@ const game = {
   },
   'setGameStatus': function () {
     this.winner = this.whoWon()
-    console.log('winner is:', this.winner)
+    // console.log('winner is:', this.winner)
     const cellEmpty = function (cell) {
       return cell === ''
     }
@@ -116,7 +116,7 @@ const playerStats = {
   'stats': {
     wins: 0,
     draws: 0,
-    losses: 0
+    loses: 0
   },
   'getStats': function (pastGame) {
     const isCellEmpty = function (cellIndexNumber) {
@@ -155,7 +155,7 @@ const playerStats = {
       if (isWinningCombination(winningCombination[0], winningCombination[1], winningCombination[2]) === 'x') {
         playerStats.stats.wins++
       } else if (isWinningCombination(winningCombination[0], winningCombination[1], winningCombination[2]) === 'o') {
-        playerStats.stats.losses++
+        playerStats.stats.loses++
       }
     }
     if (!pastGame.cells.every(isCellEmpty)) {
@@ -164,7 +164,7 @@ const playerStats = {
     // else if (!isWinningCombination(winningCombination[0], winningCombination[1], winningCombination[2])) {
     //   playerStats.stats.loses++
     // }
-    console.log('stats are', playerStats.stats)
+    // console.log('stats are', playerStats.stats)
     return playerStats.stats
   }
 }

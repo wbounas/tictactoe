@@ -31,8 +31,8 @@ const displayTurn = function () {
 // }
 
 const newGameSuccess = function (data) {
-  console.log('Create Game Success! Data is:', data)
-  console.log('Game ID is:', data.game.id)
+  // console.log('Create Game Success! Data is:', data)
+  // console.log('Game ID is:', data.game.id)
   store.apiGame = data.game
   gameEngine.game.id = store.apiGame.id
   gameEngine.game.cells = store.apiGame.cells
@@ -48,22 +48,22 @@ const newGameSuccess = function (data) {
   $('#current-turn-subtext').html('')
   $('#current-turn').html(`It is X's Turn!`)
   $('.game-id-box').html(`<b>Game ID:</b> ${data.game.id}`)
-  console.log('Now, the game object is:', gameEngine.game)
+  // console.log('Now, the game object is:', gameEngine.game)
 }
 
 const newGameFailure = function (error) {
   if (store.user === undefined) {
     $('.new-game-box').html('Please Sign In to Play!')
   }
-  console.log('ERROR Occurred')
+  // console.log('ERROR Occurred')
   console.error(error)
 }
 
 const getOverGamesSuccess = function (data) {
   const firstPastGamesLength = data.games.length
   store.pastGames = data.games
-  console.log('store.pastGames is:', store.pastGames)
-  console.log('firstPastGamesLength is:', firstPastGamesLength)
+  // console.log('store.pastGames is:', store.pastGames)
+  // console.log('firstPastGamesLength is:', firstPastGamesLength)
   if (firstPastGamesLength !== store.pastGames.length) {
     return gameEngine.playerStats.getStats(data.games[data.games.length - 1])
   }
@@ -71,7 +71,7 @@ const getOverGamesSuccess = function (data) {
   gameEngine.playerStats.stats.losses = 0
   gameEngine.playerStats.stats.draws = 0
   for (let i = 0; i < store.pastGames.length; i++) {
-    console.log(store.pastGames[i])
+    // console.log(store.pastGames[i])
     const that = store.pastGames[i]
     gameEngine.playerStats.getStats(that)
   }
@@ -85,7 +85,7 @@ const getOverGamesSuccess = function (data) {
 }
 
 const getOverGamesFailure = function (error) {
-  console.log('ERROR OCCURED')
+  // console.log('ERROR OCCURED')
   console.error(error)
 }
 

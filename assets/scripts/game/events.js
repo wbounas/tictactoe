@@ -46,8 +46,8 @@ const onClickMarker = function () {
     ui.displayResult()
     ui.displayTurn()
     $('#current-turn-subtext').html(null)
-    console.log(gameEngine.game.cells)
-    console.log(gameEngine.game)
+    // console.log(gameEngine.game.cells)
+    // console.log(gameEngine.game)
   } else if (!store.user.token) {
     $(this).html('')
   }
@@ -60,8 +60,8 @@ const onNewGame = function () {
   } else if (store.user.token) {
     $('.new-game-box').html('New Game')
     const blankGame = {}
-    console.log('this worked?')
-    console.log('store.user is:', store.user)
+    // console.log('this worked?')
+    // console.log('store.user is:', store.user)
     api.createGame(blankGame)
       .then(ui.newGameSuccess)
       .catch(ui.newGameFailure)

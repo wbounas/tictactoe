@@ -5,7 +5,7 @@ const gameUi = require('../game/ui')
 const store = require('../store')
 
 const signUpSuccess = function (data) {
-  console.log('Sign Up Successful! Data is:', data)
+  // console.log('Sign Up Successful! Data is:', data)
   $('.sign-up-message').html('Account Created! Please Sign In to Play')
   $('.sign-up-message').css('color', '#0f0')
   $('.sign-up-message').css('background', '#444')
@@ -13,7 +13,7 @@ const signUpSuccess = function (data) {
   $('.sign-up-message').css('margin', '0 auto')
   $('.sign-up-message').css('padding', '5px')
   store.user = data.user
-  console.log('in signUpSuccess, store.user is:', store.user)
+  // console.log('in signUpSuccess, store.user is:', store.user)
   // let signUpMessage = document.getElementById('saved')
   // console.log(signUpMessage)
   // signUpMessage = setTimeout(function () {
@@ -37,7 +37,7 @@ const signUpFailure = function (error) {
 }
 
 const signInSuccess = function (data) {
-  console.log('Sign-In Successful! Data is:', data)
+  // console.log('Sign-In Successful! Data is:', data)
   $('#sign-in-message').html('Account Signed In')
   $('#sign-in-message').css('color', '#0f0')
   $('#sign-in-message').css('background', '#777')
@@ -45,8 +45,8 @@ const signInSuccess = function (data) {
   $('#sign-in-message').css('margin', '0 auto')
   // $('#sign-in-message').css('padding', '5px')
   store.user = data.user
-  console.log('Stored user is:', store.user)
-  console.log('Stored data is:', store)
+  // console.log('Stored user is:', store.user)
+  // console.log('Stored data is:', store)
   $('#sign-in').each(function () {
     this.reset()
   })
@@ -100,7 +100,7 @@ const changePasswordFailure = function (error) {
 }
 
 const signOutSuccess = function (data) {
-  console.log('Sign-Out Data is:', data)
+  // console.log('Sign-Out Data is:', data)
   store.user = null
   $('#sign-out-message').html('Log Out Successful!')
   $('#sign-out-message').css('color', '#0f0')
