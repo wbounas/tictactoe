@@ -32,64 +32,64 @@ As the development of the game continued, some changes were made to the original
 - As a newbie user, I would like the page to never fully refresh, giving me an immersive user experience.
 
 ## Action Plan (Development Schedule)
-- Finish Planning
+1. Finish Planning
   - Wireframes
   - User Stories
 
-- Preliminary Set Up
-		— Download and Edit Browser Template
-		— Create Github Repo
-		— Deploy to GH Pages
+1. Preliminary Set Up
+    - Download and Edit Browser Template
+    - Create Github Repo
+    - Deploy to GH Pages
 
-- Game Engine
-		— Create Empty Board in JS
-		— Add to Board Logic
-		— Turn rotates between X and O
-		— Game always starts with X
-		— Cannot choose already occupied space
-		— Check board for winner
+1. Game Engine
+    - Create Empty Board in JS
+    - Add to Board Logic
+    - Turn rotates between X and O
+    - Game always starts with X
+    - Cannot choose already occupied space
+    - Check board for winner
 
-- Authentication
-	— Sign Up
-		— CURL
-		— AJAX
-		— Success / Failure Messages
-	— Sign In
-		— CURL
-		— AJAX
-		— Success / Failure Messages
-	— Change Password
-		— CURL
-		— AJAX
-		— Success / Failure Messages
-	— Sign Out
-		— CURL
-		— AJAX
-		— Success / Failure Messages
+1. Authentication
+  - Sign Up
+    - CURL
+    - AJAX
+    - Success / Failure Messages
+  - Sign In
+    - CURL
+    - AJAX
+    - Success / Failure Messages
+  - Change Password
+    - CURL
+    - AJAX
+    - Success / Failure Messages
+  - Sign Out
+    - CURL
+    - AJAX
+    - Success / Failure Messages
 
-- Game UI
+1. Game UI
   - Design Game Board
   - Add click handler when space is clicked on board
-		— If valid space, add player’s X or O
-		— DO not allow adding to invalid space
-		— Do not allow adding X or O after game is over
+    - If valid space, add player’s X or O
+    - DO not allow adding to invalid space
+    - Do not allow adding X or O after game is over
   - Update game engine when board is updated
   - Add messaging for turn changes
   - Add messaging for invalid space selection
   - Add messaging for game over state (win or draw)
 
-- Game API
-	— Create Game, Start New Game
-		— CURL
-		— AJAX
-	— Update Game, Play the Game
-		— CURL
-		— AJAX
-	— Get Games
-		— CURL
-		— AJAX
+1. Game API
+  - Create Game, Start New Game
+    - CURL
+    - AJAX
+  - Update Game, Play the Game
+    - CURL
+    - AJAX
+  - Get Games
+    - CURL
+    - AJAX
 
-- Final Touches
+1. Final Touches
   - README
   - Troubleshoot / Debug
   - Style
