@@ -150,7 +150,7 @@ const playerStats = {
       }
     }
     for (let i = 0; i < winningCombinations.length; i++) {
-      console.log('stats are:', this.stats)
+      // console.log('stats are:', this.stats)
       const winningCombination = winningCombinations[i]
       if (isWinningCombination(winningCombination[0], winningCombination[1], winningCombination[2]) === 'x') {
         playerStats.stats.wins++
