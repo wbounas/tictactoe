@@ -22,7 +22,6 @@
           <div class="column left title-box">
             <h2>Tic-Tac-Toe</h2>
             <p>Made by Will Bounas</p>
-            <p>Draft</p>
           </div>
 
           <div class="column left auth-box">
@@ -30,6 +29,7 @@
             <div class="column left auth-box login-box">
 
               <h3>Sign In</h3>
+              <br>
               <form id="sign-in">
                 <input name="credentials[email]" type="text" placeholder="Sign-In Email">
                 <input name="credentials[password]" type="password" value="Enter Password">
@@ -39,7 +39,7 @@
               <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">
                 No Account? Sign Up Here!
               </button>
-
+              <br>
               <p id="sign-in-message"></p>
 
               <!-- Modal -->
@@ -61,7 +61,7 @@
                             <br>
                             <input type="submit" name="submit" id="sign-up-button" value="Create Account">
                         </form>
-
+                        <br>
                         <p class="sign-up-message"></p>
 
                     </div>
@@ -76,6 +76,8 @@
 
             <div class="column left auth-box signed-in-box">
 
+              <h3>Hello, <span id="logged-in-user"></span>!</h3>
+              <br>
               <form id="change-password">
                   <input type="password" name="passwords[old]" placeholder="Enter Old Password">
                   <input type="password" name="passwords[new]" placeholder="Enter New Password">
@@ -83,7 +85,7 @@
               </form>
 
               <p id="change-password-message"></p>
-
+              <br>
               <form id="sign-out">
                 <input type="submit" name="submit" value="Log Out">
               </form>
@@ -99,8 +101,9 @@
         <div class="column right">
 
           <div class="column right result-box">
-            <h2><span class="result-text" id="result">R E S U L T</span></h2>
-            <p>Some text here...</p>
+            <h2><span class="result-text" id="result">Please Sign In to Play!</span></h2>
+            <br>
+            <p class="interesting-fact"></p>
           </div>
 
           <div class="column right game-box">

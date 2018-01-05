@@ -1,6 +1,7 @@
 'use strict'
 
 const gameEngine = require('./game-engine')
+const facts = require('./facts')
 const store = require('../store')
 
 // Code below renders current time and date
@@ -10,11 +11,12 @@ $('.time-box').html(dateTime)
 
 const displayResult = function () {
   $('#result').html(gameEngine.game.displayGameStatus())
+  $('#result').css('background', '#f00')
 }
 
 const displayTurn = function () {
   if (gameEngine.game.over === true && gameEngine.game.draw === false) {
-    $('#current-turn').html(`The game is over! ${gameEngine.game.winner} has won!`)
+    $('#current-turn').html(`The game is over! ${gameEngine.game.winner.toUpperCase()} has won!`)
   } else if (gameEngine.game.draw === true) {
     $('#current-turn').html(`The game has ended in a draw!`)
   } else {
@@ -39,10 +41,13 @@ const newGameSuccess = function (data) {
   gameEngine.game.winner = undefined
   gameEngine.game.draw = false
   clearGrid()
-  $('#result').html('R E S U L T')
+  $('.result-box').css('display', 'inline-block')
+  $('#result').html('Game has Begun!')
+  $('#result').css('background', '#f00')
+  facts.newFact()
   $('#current-turn-subtext').html('')
   $('#current-turn').html(`It is X's Turn!`)
-  $('.game-id-box').html(`Game ID: ${data.game.id}`)
+  $('.game-id-box').html(`<b>Game ID:</b> ${data.game.id}`)
   console.log('Now, the game object is:', gameEngine.game)
 }
 
@@ -71,7 +76,12 @@ const getOverGamesSuccess = function (data) {
     gameEngine.playerStats.getStats(that)
   }
   $('.player-box').html(`<b>Player X:</b> ${store.user.email}`)
-  $('.time-box').html(`<p><b> - Tic-Tac-Toe Record -  </b></p> <p> Wins: ${gameEngine.playerStats.stats.wins} Losses: ${gameEngine.playerStats.stats.losses} Draws: ${gameEngine.playerStats.stats.draws}</p>`)
+  $('.time-box').html(`
+    <p><b><u> - Tic-Tac-Toe Record - </u></b></p>
+    <p><b>Wins:</b> ${gameEngine.playerStats.stats.wins}<br>
+    <b>Losses:</b> ${gameEngine.playerStats.stats.losses}<br>
+    <b>Draws:</b> ${gameEngine.playerStats.stats.draws}</p>
+    `)
 }
 
 const getOverGamesFailure = function (error) {

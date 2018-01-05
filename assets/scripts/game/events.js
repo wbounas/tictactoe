@@ -9,6 +9,10 @@ const hoverIn = function () {
   $(this).css('background', 'green')
 }
 
+const creamHoverIn = function () {
+  $(this).css('background', '#ffe2ae')
+}
+
 const hoverOut = function () {
   $(this).css('background', 'none')
 }
@@ -100,7 +104,7 @@ const addHoverHandlers = function () {
   $('#cell6').hover(hoverIn, hoverOut)
   $('#cell7').hover(hoverIn, hoverOut)
   $('#cell8').hover(hoverIn, hoverOut)
-  $('.new-game-box').hover(hoverIn, gameButtonHoverOut)
+  $('.new-game-box').hover(creamHoverIn, gameButtonHoverOut)
 }
 
 module.exports = {

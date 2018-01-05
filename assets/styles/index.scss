@@ -5,6 +5,8 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 $cream: #ffeed0;
 $maroon-red: #c83333;
 $bootstrap-blue: #377bb5;
+$pale-blue: #beffec;
+$sand-blue: #4d7cb2;
 $red: #f00;
 $github-red: #d53c4c;
 $stack-orange: #f27f33;
@@ -14,42 +16,59 @@ $light-gray: #aaa;
 $med-light-gray: #bbb;
 $med-dark-gray: #ddd;
 $dark-gray: #eee;
+$light-sand: #ffe2ae;
+$sand: #ffdda1;
+$muddy-sand: #b2955f;
 $black: #000;
 
 * {
   box-sizing: border-box;
 }
 
+html,
 body {
-  background: $med-dark-gray;
+  height: 100%;
+}
+
+body {
+  background: $cream;
 
   .row {
     border: 1px solid $black;
-    height: auto;
+    height: fit-content;
     margin: 20px;
+    overflow: hidden;
   }
 }
 
 .column {
   float: left;
+  overflow: hidden;
   // padding: 10px;
-  height: 840px;
+  // height: 720px;
+}
+
+h3 {
+  text-decoration: underline;
 }
 
 .left {
-  background-color: $light-gray;
-  height: auto;
+  background-color: $sand;
+  height: 100%;
+  margin-bottom: -1000px;
   padding: 10px;
+  padding-bottom: 1000px;
   // min-width: 312.5px;
   width: 25%;
 }
 
 .title-box {
-  background-color: $green;
+  background-color: $light-sand;
   border: 1px solid $black;
-  height: 140px;
+  height: auto;
   margin: 25px auto;
   min-width: 60%;
+  padding: 0;
   text-align: center;
   width: 100%;
 }
@@ -63,12 +82,26 @@ body {
   width: 100%;
 }
 
+.modal-content {
+  background: $cream;
+}
+
+.modal-title {
+  font-size: 40px;
+  padding: 0;
+}
+
+.close {
+  display: inline-block;
+}
+
 .auth-box {
-  background: $green;
+  background: $light-sand;
   border: 1px solid $black;
   // height: 400px;
   height: auto;
-  margin: 25px auto 100%;
+  margin: 0 auto;
+  padding: 0;
   text-align: center;
   width: 100%;
 }
@@ -81,17 +114,18 @@ body {
 
 .signed-in-box {
   // display: none;
-  background: $green;
+  background: $light-sand;
   display: none;
   height: auto;
   margin: 0;
+  padding: 20px;
   width: 100%;
 }
 
 .right {
-  background-color: $med-light-gray;
+  background-color: $cream;
   border-left: 1px solid $black;
-  height: auto;
+  // height: 100%;
   // min-width: 50%;
   // width: 75%;
   // min-width: 937.5;
@@ -100,9 +134,11 @@ body {
 }
 
 .result-box {
-  background: $green;
+  background: $light-sand;
   border: 0;
+  border-bottom: 1px solid $black;
   // height: 140px;
+  display: none;
   height: auto;
   padding: 25px;
   text-align: center;
@@ -110,8 +146,14 @@ body {
 }
 
 .result-text {
-  background: $red;
+  background: $sand-blue;
   padding: 8px;
+}
+
+.interesting-fact {
+  background: $pale-blue;
+  display: inline-block;
+  width: auto;
 }
 
 .game-box {
@@ -119,7 +161,7 @@ body {
   border: 0;
   // border: 1px solid $black;
   // height: 460px;
-  height: auto;
+  height: 100%;
   padding: 30px;
   text-align: center;
   width: 100%;
@@ -208,9 +250,11 @@ td {
 //
 
 .turn-box {
-  background: $maroon-red;
+  background: $sand-blue;
+  display: inline-block;
   font-size: 30px;
   height: auto;
+  width: fit-content;
 }
 
 .footer-box {
@@ -218,6 +262,7 @@ td {
   // width: 50%;
   background: $maroon-red;
   border: 0;
+  border-top: 1px solid $black;
   height: 100%;
   padding: 25px;
   text-align: center;
@@ -239,7 +284,14 @@ td {
   background: $dark-gray;
   border: 1px solid $black;
   border-radius: 5px;
+  // display: inline-block;
   margin: 0 auto;
+  // width: auto;
+}
+
+.time-box {
+  // display: inline-block;
+  width: fit-content;
 }
 
 .footer-text {
@@ -264,10 +316,16 @@ td {
   .left {
     height: auto;
     margin: auto;
+    padding: 0;
   }
 
   .right {
     border-left: 0;
+  }
+
+  .auth-box {
+    border-bottom: 1px solid $black;
+    // padding-bottom: 20px;
   }
 
   .title-box {
@@ -280,7 +338,7 @@ td {
   }
 
   .footer-boxes {
-    width: auto;
+    width: fit-content;
   }
 
   // .auth-box {
