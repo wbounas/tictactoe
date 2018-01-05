@@ -68,31 +68,31 @@ As the development of the game continued, some changes were made to the original
       - Success / Failure Messages
 
 1. Game UI
-  - Design Game Board
-  - Add click handler when space is clicked on board
-    - If valid space, add player’s X or O
-    - DO not allow adding to invalid space
-    - Do not allow adding X or O after game is over
-  - Update game engine when board is updated
-  - Add messaging for turn changes
-  - Add messaging for invalid space selection
-  - Add messaging for game over state (win or draw)
+    - Design Game Board
+    - Add click handler when space is clicked on board
+      - If valid space, add player’s X or O
+      - DO not allow adding to invalid space
+      - Do not allow adding X or O after game is over
+    - Update game engine when board is updated
+    - Add messaging for turn changes
+    - Add messaging for invalid space selection
+    - Add messaging for game over state (win or draw)
 
 1. Game API
-  - Create Game, Start New Game
-    - CURL
-    - AJAX
-  - Update Game, Play the Game
-    - CURL
-    - AJAX
-  - Get Games
-    - CURL
-    - AJAX
+    - Create Game, Start New Game
+      - CURL
+      - AJAX
+    - Update Game, Play the Game
+      - CURL
+      - AJAX
+    - Get Games
+      - CURL
+      - AJAX
 
 1. Final Touches
-  - README
-  - Troubleshoot / Debug
-  - Style
+    - README
+    - Troubleshoot / Debug
+    - Style
 
 - Stretch Goals
     - Online Multiplayer Support
