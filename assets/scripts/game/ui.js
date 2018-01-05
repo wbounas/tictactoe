@@ -51,12 +51,12 @@ const newGameSuccess = function (data) {
   // console.log('Now, the game object is:', gameEngine.game)
 }
 
-const newGameFailure = function (error) {
+const newGameFailure = function () {
   if (store.user === undefined) {
     $('.new-game-box').html('Please Sign In to Play!')
   }
   // console.log('ERROR Occurred')
-  console.error(error)
+  // console.error(error)
 }
 
 const getOverGamesSuccess = function (data) {
@@ -84,10 +84,10 @@ const getOverGamesSuccess = function (data) {
     `)
 }
 
-const getOverGamesFailure = function (error) {
-  // console.log('ERROR OCCURED')
-  console.error(error)
-}
+// const getOverGamesFailure = function (error) {
+//   // console.log('ERROR OCCURED')
+//   // console.error(error)
+// }
 
 const clearGrid = function () {
   $('#cell0').html('')

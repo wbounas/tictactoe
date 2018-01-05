@@ -24,8 +24,8 @@ const signUpSuccess = function (data) {
   })
 }
 
-const signUpFailure = function (error) {
-  console.error(error)
+const signUpFailure = function () {
+  // console.error(error)
   $('.sign-up-message').html('Error has Occurred')
   $('.sign-up-message').css('color', '#f00')
   $('#sign-up-message').css('background', '#777')
@@ -61,8 +61,8 @@ const signInSuccess = function (data) {
   gameEvents.onNewGame()
 }
 
-const signInFailure = function (error) {
-  console.error(error)
+const signInFailure = function () {
+  // console.error(error)
   $('#sign-in-message').html('Error has Occurred')
   $('#sign-in-message').css('color', '#f00')
   $('#sign-in-message').css('background', '#777')
@@ -87,8 +87,8 @@ const changePasswordSuccess = function (data) {
   setTimeout(function () { $('#change-password-message').html('') }, 3000)
 }
 
-const changePasswordFailure = function (error) {
-  console.error(error)
+const changePasswordFailure = function () {
+  // console.error(error)
   $('#change-password-message').html('Error has Occurred')
   $('#change-password-message').css('color', '#f00')
   $('#change-password-message').css('background', '#777')
@@ -118,8 +118,8 @@ const signOutSuccess = function (data) {
   $('.result-box').css('display', 'none')
 }
 
-const signOutFailure = function (error) {
-  console.error(error)
+const signOutFailure = function () {
+  // console.error(error)
   $('#sign-out-message').html('Error has Occurred')
   $('#sign-out-message').css('color', '#f00')
   $('#sign-out-message').css('background', '#777')
