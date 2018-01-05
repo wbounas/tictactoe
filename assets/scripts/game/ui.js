@@ -84,10 +84,10 @@ const getOverGamesSuccess = function (data) {
     `)
 }
 
-// const getOverGamesFailure = function (error) {
-//   // console.log('ERROR OCCURED')
-//   // console.error(error)
-// }
+const getOverGamesFailure = function () {
+  // console.log('ERROR OCCURED')
+  // console.error(error)
+}
 
 const clearGrid = function () {
   $('#cell0').html('')
