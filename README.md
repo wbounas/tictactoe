@@ -50,22 +50,22 @@ As the development of the game continued, some changes were made to the original
     - Check board for winner
 
 1. Authentication
-  - Sign Up
-    - CURL
-    - AJAX
-    - Success / Failure Messages
-  - Sign In
-    - CURL
-    - AJAX
-    - Success / Failure Messages
-  - Change Password
-    - CURL
-    - AJAX
-    - Success / Failure Messages
-  - Sign Out
-    - CURL
-    - AJAX
-    - Success / Failure Messages
+    - Sign Up
+      - CURL
+      - AJAX
+      - Success / Failure Messages
+    - Sign In
+      - CURL
+      - AJAX
+      - Success / Failure Messages
+    - Change Password
+      - CURL
+      - AJAX
+      - Success / Failure Messages
+    - Sign Out
+      - CURL
+      - AJAX
+      - Success / Failure Messages
 
 1. Game UI
   - Design Game Board
@@ -95,8 +95,8 @@ As the development of the game continued, some changes were made to the original
   - Style
 
 - Stretch Goals
-		- Online Multiplayer Support
-		- Table-side Chat
+    - Online Multiplayer Support
+    - Table-side Chat
 
 ## Development
 ### Game Logic
