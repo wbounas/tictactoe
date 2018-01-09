@@ -73,7 +73,6 @@ const facts = [
   'Windmills always turn counter-clockwise. Except for the windmills in Ireland',
   'You’re born with 300 bones, but when you get to be an adult, you only have 206',
   'You’re more likely to get stung by a bee on a windy day than in any other weather',
-  'Windmills always turn counter-clockwise. Except for the windmills in Ireland',
   'The sound of E.T. walking was made by someone squishing her hands in Jello',
   'The starfish is one of the only animals who can turn it’s stomach inside-out',
   'The state of Florida is bigger than England',

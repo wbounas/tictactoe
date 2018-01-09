@@ -10,7 +10,9 @@ const hoverIn = function () {
 }
 
 const creamHoverIn = function () {
-  $(this).css('background', '#ffe2ae')
+  if ($('.new-game-box').html() !== 'Please Sign In to Play!') {
+    $(this).css('background', '#ffe2ae')
+  }
 }
 
 const hoverOut = function () {
