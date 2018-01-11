@@ -294,6 +294,10 @@ td {
   width: fit-content;
 }
 
+// .game-id-box {
+// .time-box;
+// }
+
 .footer-text {
   // background: $dark-gray;
   padding: 8px;
@@ -309,6 +313,10 @@ td {
 
 // Responsive layout - makes the two columns stack on top of each other instead of next to each other
 @media (max-width: 940px) {
+  .body {
+    width: fit-content;
+  }
+
   .column {
     width: 100%;
   }
@@ -335,6 +343,17 @@ td {
 
   .ttt {
     width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer-column {
+    width: 100%;
+  }
+
+  // need to change naming scheme here
+  .left-footer-box {
+    margin-bottom: 20px;
   }
 
   .footer-boxes {
