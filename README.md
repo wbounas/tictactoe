@@ -33,8 +33,8 @@ As the development of the game continued, some changes were made to the original
 
 ## Action Plan (Development Schedule)
 1. Finish Planning
-  - Wireframes
-  - User Stories
+    - Wireframes
+    - User Stories
 
 1. Preliminary Set Up
     - Download and Edit Browser Template
