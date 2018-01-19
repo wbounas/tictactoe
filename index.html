@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+      <title>Tic-Tac-Toe</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+
+    <body class="container-fluid">
+
+      <div class="row">
+
+        <div class="column left">
+
+          <div class="column left title-box">
+            <h2>Tic-Tac-Toe</h2>
+            <p>Made by Will Bounas</p>
+          </div>
+
+          <div class="column left auth-box">
+
+            <div class="column left auth-box login-box">
+
+              <h3>Sign In</h3>
+              <br>
+              <form id="sign-in">
+                <input name="credentials[email]" type="text" placeholder="Sign-In Email">
+                <input name="credentials[password]" type="password" placeholder="Enter Password">
+                <input type="submit" name="submit" id="sign-in-button" value="Log In">
+              </form>
+              <br>
+              <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">
+                No Account? Sign Up Here!
+              </button>
+              <br>
+              <p id="sign-in-message"></p>
+              <br>
+
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Create an Account</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+
+                        <form id="sign-up">
+                            <input type="text" name="credentials[email]" placeholder="Enter Email"><br>
+                            <input type="password" name="credentials[password]" placeholder="Enter Password"><br>
+                            <input type="password" name="credentials[password_confirmation]" placeholder="Enter Password Again"><br>
+                            <br>
+                            <input type="submit" name="submit" id="sign-up-button" value="Create Account">
+                        </form>
+                        <br>
+                        <p class="sign-up-message"></p>
+
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="column left auth-box signed-in-box">
+
+              <h3>Hello, <span id="logged-in-user"></span>!</h3>
+              <br>
+              <form id="change-password">
+                  <input type="password" name="passwords[old]" placeholder="Enter Old Password">
+                  <input type="password" name="passwords[new]" placeholder="Enter New Password">
+                  <input type="submit" name="submit" value="Change Password">
+              </form>
+
+              <p id="change-password-message"></p>
+              <br>
+              <form id="sign-out">
+                <input type="submit" name="submit" value="Log Out">
+              </form>
+              <br>
+              <p id="sign-out-message"></p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="column right">
+
+          <div class="column right result-box">
+            <h2><span class="result-text" id="result">Please Sign In to Play!</span></h2>
+            <br>
+            <p class="interesting-fact"></p>
+          </div>
+
+          <div class="column right game-box">
+
+            <div class="ttt" id="ttt">
+
+              <table class="ttt grid" id="grid">
+                <tr>
+                  <td class="cell0" id="cell0" data-cell-index="0"></td>
+                  <td class="cell1" id="cell1" data-cell-index="1"></td>
+                  <td class="cell2" id="cell2" data-cell-index="2"></td>
+                </tr>
+                <tr>
+                  <td class="cell3" id="cell3" data-cell-index="3"></td>
+                  <td class="cell4" id="cell4" data-cell-index="4"></td>
+                  <td class="cell5" id="cell5" data-cell-index="5"></td>
+                </tr>
+                <tr>
+                  <td class="cell6" id="cell6" data-cell-index="6"></td>
+                  <td class="cell7" id="cell7" data-cell-index="7"></td>
+                  <td class="cell8" id="cell8" data-cell-index="8"></td>
+                </tr>
+              </table>
+
+            </div>
+
+            <br>
+            <br>
+
+            <div class="game-box turn-box">
+              <span id="current-turn">Please Sign In to Play!</span>
+              <br>
+              <span id="current-turn-subtext"></span>
+            </div>
+
+          </div>
+
+          <div class="column right footer-box">
+
+            <div class="footer-column left-footer-box">
+              <div class="footer-boxes footer-text player-box">Player Score</div>
+              <br>
+              <div class="footer-boxes footer-text time-box"></div>
+            </div>
+            <div class="footer-column right-footer-box">
+              <div class="footer-boxes footer-text new-game-box">New Game</div>
+              <br>
+              <div class="footer-boxes footer-text game-id-box">Game ID: 0 (Not Signed In!)</div>
+            </div>
+            <!-- <h2><span class="footer-box footer-text">Footer Here</span></h2>
+            <p>Some text here...</p> -->
+          </div>
+
+        </div>
+
+      </div>
+
+    </body>
+
+</html>
