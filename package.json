@@ -39,7 +39,7 @@
     "handlebars-loader": "^1.5.0",
     "html-loader": "^0.5.1",
     "load-grunt-config": "^0.19.2",
-    "mocha": "^3.5.0",
+    "mocha": "^10.2.0",
     "node-libs-browser": "^2.0.0",
     "node-sass": "^4.5.3",
     "sass-loader": "^6.0.6",
